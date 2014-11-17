@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial;
+    font-size: 24px;
+    color: #000;
+    background-color: #9fe8ef;
+}
+
+.hide {
+    display: none;
+}
+
+.header {
+    height: 10px;
+    background-color: #000084;
+    border-top: 1px solid #90b1bc;
+    border-bottom: 1px solid #90b1bc;
+    margin-top: 100px;
+}
+
+.slides {
+}
+
+.earth {
+    background-image: url(/images/earth.svg);
+    width: 432px;
+    height: 432px;
+}
+
+.oil-tap {
+    background-image: url(/images/oil_tap.png);
+    width: 150px;
+    height: 225px;
+}
+
+.slide {
+
+}
+
+.slide .earth {
+    margin: 0 auto;
+}
+
+.slide .title {
+    font-weight: normal;
+    text-align: center;
+    height: 138px;
+    padding-top: 83px;
+}
+
+.slide-1 .earth {
+    position: relative;
+}
+
+.slide-1 .earth .oil-tap{
+    position: absolute;
+    top: 166px;
+    left: 317px;
+}
