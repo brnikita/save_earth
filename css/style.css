@@ -15,15 +15,8 @@ body {
     display: none;
 }
 
-.header {
-    height: 10px;
-    background-color: #000084;
-    border-top: 1px solid #90b1bc;
-    border-bottom: 1px solid #90b1bc;
-    margin-top: 100px;
-}
-
 .slides {
+    padding-top: 100px;
 }
 
 .earth {
@@ -36,10 +29,15 @@ body {
     background-image: url(/images/oil_tap.png);
     width: 150px;
     height: 225px;
+    position: absolute;
+    top: 166px;
+    left: 317px;
+    opacity: 0;
 }
 
 .slide {
-
+    position: fixed;
+    width: 100%;
 }
 
 .slide .earth {
@@ -49,16 +47,21 @@ body {
 .slide .title {
     font-weight: normal;
     text-align: center;
-    height: 138px;
-    padding-top: 83px;
-}
-
-.slide-1 .earth {
+    height: 220px;
+    padding-top: 20px;
+    z-index: 5;
     position: relative;
 }
 
-.slide-1 .earth .oil-tap{
+.slide .earth {
+    position: relative;
+}
+
+.slide .gas-burn {
     position: absolute;
-    top: 166px;
-    left: 317px;
+    z-index: 2;
+    opacity: 0;
+    top: -187px;
+    text-align: center;
+    width: 100%;
 }
