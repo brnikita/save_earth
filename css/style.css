@@ -65,3 +65,11 @@ body {
     text-align: center;
     width: 100%;
 }
+
+.slide .gas-burn img {
+    margin: 0 -369px;
+}
+
+.slide-2-fade-in .oil-tap, .slide-1-fade-out .oil-tap {
+    opacity: 1;
+}

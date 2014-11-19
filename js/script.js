@@ -79,69 +79,65 @@ $(function () {
         new Slide(
             $('.js-slide-1'),
             600,
-            /**
-             * Handler of first slide scrolling
-             *
-             * @function
-             * @name firstSlideHandler
-             * @param {number} scrollPosition Scroll position in percents for first slide
-             * @returns {undefined}
-             */
-                function firstSlideHandler(scrollPosition) {
-                var $oilTap = $('.js-oil-tap', this.$el),
-                    opacityScore = scrollPosition / 100;
+            function firstSlideHandler(scrollPosition) {
+                var $oilTap = $('.js-oil-tap', this.$el);
 
-                if (scrollPosition > 50) {
-                    opacityScore += 0.2;
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.2;
                 }
 
-                $oilTap.css('opacity', opacityScore);
+                $oilTap.css('opacity', scrollPosition);
             }),
+        new Slide(
+            $('.js-slide-1-fade-out'),
+            400,
+            function firstSlideHandler(scrollPosition) {
+                var $title = $('.js-title', this.$el);
 
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.2;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $('.js-slide-2-fade-in'),
+            400,
+            function firstSlideHandler(scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.2;
+                }
+
+                $title.css('opacity', scrollPosition);
+            }),
         new Slide(
             $('.js-slide-2'),
             600,
-            /**
-             * Handler of first slide scrolling
-             *
-             * @function
-             * @name firstSlideHandler
-             * @param {number} scrollPosition Scroll position in percents for first slide
-             * @returns {undefined}
-             */
-                function firstSlideHandler(scrollPosition) {
+            function firstSlideHandler(scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
-                    $gusBurn = $('.js-gus-burn', this.$el),
-                    opacityScore = scrollPosition / 100;
+                    $gusBurn = $('.js-gus-burn', this.$el);
 
-                if (scrollPosition > 50) {
-                    opacityScore += 0.2;
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.2;
                 }
 
-                $oilTap.css('opacity', 1 - opacityScore);
-                $gusBurn.css('opacity', opacityScore);
+                $oilTap.css('opacity', 1 - scrollPosition);
+                $gusBurn.css('opacity', scrollPosition);
             }),
 
         new Slide(
             $('.js-slide-3'),
             600,
-            /**
-             * Handler of first slide scrolling
-             *
-             * @function
-             * @name firstSlideHandler
-             * @param {number} scrollPosition Scroll position in percents for first slide
-             * @returns {undefined}
-             */
-                function firstSlideHandler(scrollPosition) {
-                var $gusBurn = $('.js-gus-burn', this.$el),
-                    opacityScore = scrollPosition / 100;
+            function firstSlideHandler(scrollPosition) {
+                var $gusBurn = $('.js-gus-burn', this.$el);
 
-                if (scrollPosition > 50) {
-                    opacityScore += 0.3;
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
                 }
 
-                $gusBurn.css('opacity', 1 - opacityScore);
+                $gusBurn.css('opacity', 1 - scrollPosition);
             })
     ];
 
@@ -152,7 +148,7 @@ $(function () {
      * @function
      * @name getSlideByScrollingPosition
      * @param {number} scrollingPosition
-     * @returns {Object}
+     * @returns {Object | null}
      */
     function getSlideByScrollingPosition(scrollingPosition) {
         var scrollingSum = 0,
@@ -163,7 +159,7 @@ $(function () {
         for (; i < slidesList.length; i++) {
             slide = slidesList[i];
             newScrollingSum += slide.scrollLength;
-            console.log(newScrollingSum, scrollingPosition);
+
             if (newScrollingSum >= scrollingPosition) {
                 return {
                     startScrollPosition: scrollingSum,
@@ -172,6 +168,11 @@ $(function () {
             }
             scrollingSum = newScrollingSum;
         }
+
+        return {
+            startScrollPosition: scrollingSum,
+            slide: slide
+        };
     }
 
     /**
@@ -207,9 +208,9 @@ $(function () {
             nextSlideData = getSlideByScrollingPosition(scrollTop),
             nextSlide = nextSlideData.slide,
             scrollPosition = scrollTop - nextSlideData.startScrollPosition,
-            scrollPositionPercents = 100 * scrollPosition / nextSlide.scrollLength;
+            relativeScrollPosition = scrollPosition / nextSlide.scrollLength;
 
-        nextSlide.slideHandler(scrollPositionPercents);
+        nextSlide.slideHandler(relativeScrollPosition);
 
         if (currentSlide !== nextSlide) {
             if (currentSlide instanceof Slide) {
