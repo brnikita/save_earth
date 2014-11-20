@@ -4,7 +4,8 @@ $(function () {
         currentSlide,
         $window = $(window),
         $slides = $('.js-slides'),
-        slidesList;
+        slidesList,
+        $coalBurning = $('.js-coal-burning');
 
     /**
      * Constructor of Slide class
@@ -78,21 +79,76 @@ $(function () {
      */
     slidesList = [
         new Slide(
-            $('.js-slide-1'),
+            $('.js-hand-world'),
             600,
-            function firstSlideHandler(scrollPosition) {
-                var $oilTap = $('.js-oil-tap', this.$el);
+            function (scrollPosition) {
+                this.$el.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $('.js-our-beautiful-planet'),
+            600,
+            function (scrollPosition) {
+                this.$el.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $coalBurning,
+            600,
+            function (scrollPosition) {
+                var $burnCoal = $('.js-burn-coal', this.$el),
+                    opacity,
+                    topPosition;
 
+                opacity = scrollPosition;
                 if (scrollPosition > 0.5) {
-                    scrollPosition += 0.2;
+                    opacity = scrollPosition + 0.2;
                 }
 
-                $oilTap.css('opacity', scrollPosition);
+                topPosition = scrollPosition;
+                if (scrollPosition > 0.8) {
+                    topPosition = 1;
+                    opacity = 1;
+                }
+
+                topPosition = -900 * (1 - topPosition);
+                $burnCoal.css({
+                    opacity: opacity,
+                    top: topPosition - 164 + 'px'
+                });
+            }),
+        new Slide(
+            $coalBurning,
+            300,
+            function (scrollPosition) {
+                var $burnCoal = $('.js-burn-coal', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $burnCoal.css('opacity', 1 - scrollPosition);
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $('.js-slide-1'),
+            600,
+            function (scrollPosition) {
+                var $oilTap = $('.js-oil-tap', this.$el),
+                    $title = $('.js-title', this.$el),
+                    rightPosition;
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.1;
+                }
+
+                rightPosition = -900 * (1 - scrollPosition);
+                $oilTap.css({
+                    opacity: scrollPosition,
+                    right: rightPosition - 50 + 'px'
+                });
+
+                $title.css('opacity', scrollPosition);
             }),
         new Slide(
             $('.js-slide-1-fade-out'),
             400,
-            function firstSlideHandler(scrollPosition) {
+            function (scrollPosition) {
                 var $title = $('.js-title', this.$el);
 
                 if (scrollPosition > 0.5) {
@@ -104,7 +160,7 @@ $(function () {
         new Slide(
             $('.js-slide-2-fade-in'),
             400,
-            function firstSlideHandler(scrollPosition) {
+            function (scrollPosition) {
                 var $title = $('.js-title', this.$el);
 
                 if (scrollPosition > 0.5) {
@@ -116,7 +172,7 @@ $(function () {
         new Slide(
             $('.js-slide-2'),
             600,
-            function firstSlideHandler(scrollPosition) {
+            function (scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
                     $gusBurn = $('.js-gus-burn', this.$el);
 
@@ -131,7 +187,7 @@ $(function () {
         new Slide(
             $('.js-slide-3'),
             600,
-            function firstSlideHandler(scrollPosition) {
+            function (scrollPosition) {
                 var $gusBurn = $('.js-gus-burn', this.$el);
 
                 if (scrollPosition > 0.5) {

@@ -16,23 +16,41 @@ body {
 }
 
 .slides {
-    margin-top: 100px;
+    margin-top: 190px;
+}
+
+.title {
+    font-weight: normal;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    font-size: 24px;
+}
+
+.slide-hand-world {
+    text-align: center;
+}
+
+.slide-hand-world .hand-world {
+    margin: -130px -300px 0 -300px;
 }
 
 .earth {
-    background-image: url(/images/earth.svg);
+    background-image: url('/images/earth.svg');
     width: 432px;
     height: 432px;
 }
 
+.burn-coal {
+    background-image: url('/images/coal_burning.svg');
+    height: 415px;
+    width: 432px;
+}
+
 .oil-tap {
-    background-image: url(/images/oil_tap.svg);
+    background-image: url('/images/oil_tap.svg');
     width: 150px;
     height: 225px;
-    position: absolute;
-    top: 166px;
-    left: 317px;
-    opacity: 0;
 }
 
 .slide {
@@ -41,27 +59,29 @@ body {
 }
 
 .slide .earth {
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -218px;
+    top: 255px;
 }
 
-.slide .title {
-    font-weight: normal;
-    text-align: center;
-    height: 220px;
-    padding-top: 20px;
-    z-index: 5;
-    position: relative;
+.slide .earth .oil-tap {
+    top: 181px;
+    right: -50px;
+    position: absolute;
+
 }
 
-.slide .earth {
-    position: relative;
+.burn-coal, .slide-coal-burning .burn-coal {
+    position: absolute;
+    top: -164px;
 }
 
 .slide .gas-burn {
     position: absolute;
     z-index: 2;
     opacity: 0;
-    top: -187px;
+    top: -174px;
     text-align: center;
     width: 100%;
 }
