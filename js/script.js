@@ -3,6 +3,7 @@ $(function () {
     var Slide,
         currentSlide,
         $window = $(window),
+        $slides = $('.js-slides'),
         slidesList;
 
     /**
@@ -146,13 +147,13 @@ $(function () {
      * start scrolling position of slide by current scrolling position
      *
      * @function
-     * @name getSlideByScrollingPosition
-     * @param {number} scrollingPosition
+     * @name getSlideByScrolledArea
+     * @param {number} scrolledArea
      * @returns {Object | null}
      */
-    function getSlideByScrollingPosition(scrollingPosition) {
-        var scrollingSum = 0,
-            newScrollingSum = 0,
+    function getSlideByScrolledArea(scrolledArea) {
+        var scrollingSum = $window.height(),
+            newScrollingSum = scrollingSum,
             slide,
             i = 0;
 
@@ -160,7 +161,7 @@ $(function () {
             slide = slidesList[i];
             newScrollingSum += slide.scrollLength;
 
-            if (newScrollingSum >= scrollingPosition) {
+            if (newScrollingSum >= scrolledArea) {
                 return {
                     startScrollPosition: scrollingSum,
                     slide: slide
@@ -183,16 +184,20 @@ $(function () {
      * @returns {undefined}
      */
     function setFullHeightBySlides() {
-        var $slides = $('.js-slides'),
-            lastSlide,
+        var lastSlide,
+            slidesTop = $slides.offset().top,
+            windowHeight = $window.height(),
             fullHeight = 0;
+
+        if (windowHeight > slidesTop) {
+            fullHeight = windowHeight - slidesTop;
+        }
 
         $.each(slidesList, function (index, slide) {
             fullHeight += slide.scrollLength;
             lastSlide = slide;
         });
 
-        fullHeight += lastSlide.scrollLength;
         $slides.height(fullHeight);
     }
 
@@ -204,12 +209,23 @@ $(function () {
      * @returns {undefined}
      */
     function scrollHandler() {
-        var scrollTop = $window.scrollTop(),
-            nextSlideData = getSlideByScrollingPosition(scrollTop),
-            nextSlide = nextSlideData.slide,
-            scrollPosition = scrollTop - nextSlideData.startScrollPosition,
-            relativeScrollPosition = scrollPosition / nextSlide.scrollLength;
+        var slidesTop = $slides.offset().top,
+            windowHeight = $window.height(),
+            scrolledArea = $window.scrollTop() + windowHeight - slidesTop,
+            nextSlideData,
+            nextSlide,
+            scrollPosition,
+            relativeScrollPosition;
 
+        if (scrolledArea < 0) {
+            scrolledArea = 0;
+        }
+
+        nextSlideData = getSlideByScrolledArea(scrolledArea);
+        nextSlide = nextSlideData.slide;
+        scrollPosition = scrolledArea - nextSlideData.startScrollPosition;
+        scrollPosition = scrollPosition < 0 ? 0 : scrollPosition;
+        relativeScrollPosition = scrollPosition / nextSlide.scrollLength;
         nextSlide.slideHandler(relativeScrollPosition);
 
         if (currentSlide !== nextSlide) {
@@ -229,7 +245,8 @@ $(function () {
      * @returns {undefined}
      */
     function addListeners() {
-        $window.on('scroll', scrollHandler);
+        $window.on('scroll', scrollHandler).
+            on('resize', setFullHeightBySlides);
     }
 
     setFullHeightBySlides();
