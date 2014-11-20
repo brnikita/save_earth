@@ -13,22 +13,25 @@ $(function () {
         $slideArcticIce = $('.js-slide-arctic-ice'),
         $slideExtremeEvents = $('.js-slide-extreme-events'),
         $slideFlooding = $('.js-slide-flooding'),
-        $glacierRetreat = $('.js-slide-glacier-retreat');
+        $glacierRetreat = $('.js-slide-glacier-retreat'),
+        $rectanglesClickable = $('.js-slide-rectangles-clickable'),
+        $firstSixChallengaes = $('.js-slide-first-six-challenges'),
+        $slideTurnTheWorld = $('.js-slide-turn-the-world'),
 
-    /**
-     * Constructor of Slide class
-     *
-     * @constructor
-     * @param {jQuery} $slide slide element
-     * @param {number} scrollLength Scrolling length of slide
-     * @param {function} slideHandler Function handles scroll changing for current slide
-     * @returns {undefined}
-     */
-    Slide = function ($slide, scrollLength, slideHandler) {
-        this.$el = $slide;
-        this.scrollLength = scrollLength;
-        this.slideHandler = slideHandler;
-    };
+        /**
+         * Constructor of Slide class
+         *
+         * @constructor
+         * @param {jQuery} $slide slide element
+         * @param {number} scrollLength Scrolling length of slide
+         * @param {function} slideHandler Function handles scroll changing for current slide
+         * @returns {undefined}
+         */
+        Slide = function ($slide, scrollLength, slideHandler) {
+            this.$el = $slide;
+            this.scrollLength = scrollLength;
+            this.slideHandler = slideHandler;
+        };
 
     /**
      * Field contains scrolling length of slide
@@ -453,6 +456,106 @@ $(function () {
             }),
         new Slide(
             $glacierRetreat,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $rectanglesClickable,
+            600,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $rectanglesClickable,
+            300,
+            function () {
+                var $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+            }),
+        new Slide(
+            $rectanglesClickable,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $firstSixChallengaes,
+            600,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $firstSixChallengaes,
+            300,
+            function () {
+                var $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+            }),
+        new Slide(
+            $firstSixChallengaes,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideTurnTheWorld,
+            600,
+            function (scrollPosition) {
+                var $rectangles = $('.js-rectangle', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangles.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideTurnTheWorld,
+            300,
+            function () {
+                var $rectangles = $('.js-rectangle', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangles.css('opacity', 0);
+            }),
+        new Slide(
+            $slideTurnTheWorld,
             400,
             function (scrollPosition) {
                 var $title = $('.js-title', this.$el);
