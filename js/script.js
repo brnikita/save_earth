@@ -4,8 +4,16 @@ $(function () {
         currentSlide,
         $window = $(window),
         $slides = $('.js-slides'),
+        $slide6Challenges = $('.js-slide-6-challenges'),
+        $tapPlanet = $('.js-tap-planet'),
         slidesList,
-        $coalBurning = $('.js-coal-burning');
+        $coalBurning = $('.js-coal-burning'),
+        $slideGlobalWarming = $('.js-slide-global-warming'),
+        $slideOceanAcidification = $('.js-slide-ocean-acidification'),
+        $slideArcticIce = $('.js-slide-arctic-ice'),
+        $slideExtremeEvents = $('.js-slide-extreme-events'),
+        $slideFlooding = $('.js-slide-flooding'),
+        $glacierRetreat = $('.js-slide-glacier-retreat');
 
     /**
      * Constructor of Slide class
@@ -117,7 +125,15 @@ $(function () {
             }),
         new Slide(
             $coalBurning,
-            300,
+            600,
+            function () {
+                var $burnCoal = $('.js-burn-coal', this.$el);
+
+                $burnCoal.removeAttr('style');
+            }),
+        new Slide(
+            $coalBurning,
+            400,
             function (scrollPosition) {
                 var $burnCoal = $('.js-burn-coal', this.$el),
                     $title = $('.js-title', this.$el);
@@ -125,8 +141,9 @@ $(function () {
                 $burnCoal.css('opacity', 1 - scrollPosition);
                 $title.css('opacity', 1 - scrollPosition);
             }),
+        //natural gas
         new Slide(
-            $('.js-slide-1'),
+            $tapPlanet,
             600,
             function (scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
@@ -138,6 +155,11 @@ $(function () {
                 }
 
                 rightPosition = -900 * (1 - scrollPosition);
+
+                if (rightPosition > -50) {
+                    rightPosition = 0;
+                }
+
                 $oilTap.css({
                     opacity: scrollPosition,
                     right: rightPosition - 50 + 'px'
@@ -146,7 +168,17 @@ $(function () {
                 $title.css('opacity', scrollPosition);
             }),
         new Slide(
-            $('.js-slide-1-fade-out'),
+            $tapPlanet,
+            600,
+            function () {
+                var $oilTap = $('.js-oil-tap', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $oilTap.removeAttr('style');
+                $title.removeAttr('style');
+            }),
+        new Slide(
+            $('.js-tap-planet-fade-out'),
             400,
             function (scrollPosition) {
                 var $title = $('.js-title', this.$el);
@@ -158,7 +190,7 @@ $(function () {
                 $title.css('opacity', 1 - scrollPosition);
             }),
         new Slide(
-            $('.js-slide-2-fade-in'),
+            $('.js-slide-natural-gas-fade-in'),
             400,
             function (scrollPosition) {
                 var $title = $('.js-title', this.$el);
@@ -170,7 +202,7 @@ $(function () {
                 $title.css('opacity', scrollPosition);
             }),
         new Slide(
-            $('.js-slide-2'),
+            $('.js-slide-natural-gas'),
             600,
             function (scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
@@ -183,18 +215,253 @@ $(function () {
                 $oilTap.css('opacity', 1 - scrollPosition);
                 $gusBurn.css('opacity', scrollPosition);
             }),
-
         new Slide(
-            $('.js-slide-3'),
+            $slide6Challenges,
             600,
             function (scrollPosition) {
                 var $gusBurn = $('.js-gus-burn', this.$el);
 
                 if (scrollPosition > 0.5) {
+                    scrollPosition += 0.2;
+                }
+
+                if (scrollPosition > 0.8) {
+                    scrollPosition = 1;
+                }
+                $gusBurn.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slide6Challenges,
+            300,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slide6Challenges,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
                     scrollPosition += 0.3;
                 }
 
-                $gusBurn.css('opacity', 1 - scrollPosition);
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideGlobalWarming,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $slideGlobalWarming,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $slideGlobalWarming,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideOceanAcidification,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $slideOceanAcidification,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $slideOceanAcidification,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideArcticIce,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $slideArcticIce,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $slideArcticIce,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideExtremeEvents,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $slideExtremeEvents,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $slideExtremeEvents,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $slideFlooding,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $slideFlooding,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $slideFlooding,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
+            }),
+        new Slide(
+            $glacierRetreat,
+            600,
+            function (scrollPosition) {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', scrollPosition);
+                $rectangle.css('opacity', scrollPosition);
+            }),
+        new Slide(
+            $glacierRetreat,
+            300,
+            function () {
+                var $rectangle = $('.js-rectangle:last', this.$el),
+                    $title = $('.js-title', this.$el);
+
+                $title.removeAttr('style');
+                $rectangle.removeAttr('style');
+            }),
+        new Slide(
+            $glacierRetreat,
+            400,
+            function (scrollPosition) {
+                var $title = $('.js-title', this.$el);
+
+                if (scrollPosition > 0.5) {
+                    scrollPosition += 0.3;
+                }
+
+                $title.css('opacity', 1 - scrollPosition);
             })
     ];
 

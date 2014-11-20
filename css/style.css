@@ -90,6 +90,47 @@ body {
     margin: 0 -369px;
 }
 
-.slide-2-fade-in .oil-tap, .slide-1-fade-out .oil-tap {
+.natural-gas-fade-in .oil-tap, .tap-planet-fade-out .oil-tap {
     opacity: 1;
 }
+
+.six-challenges {
+    text-decoration: none;
+}
+
+.six-challenges.global-warming {
+    position: absolute;
+    top: 442px;
+    right: -106px;
+}
+
+.six-challenges.ocean-acidification {
+    position: absolute;
+    top: 416px;
+    left: -224px;
+}
+
+.six-challenges.declining-ice {
+    position: absolute;
+    top: 118px;
+    left: -361px;
+}
+
+.six-challenges.extreme_events {
+    position: absolute;
+    top: -204px;
+    left: -136px;
+}
+
+.six-challenges.flooding_dangers {
+    position: absolute;
+    top: -204px;
+    right: -204px;
+}
+
+.six-challenges.glacier-retreat {
+    position: absolute;
+    top: 109px;
+    left: 625px;
+}
+
