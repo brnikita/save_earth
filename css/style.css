@@ -63,7 +63,7 @@ body {
     z-index: 0;
 }
 
-.slide .earth {
+.slide .earth, .slide .earth_180 {
     position: absolute;
     left: 50%;
     margin-left: -218px;
@@ -176,6 +176,229 @@ body {
     left: -169px;
 }
 
+.earth_180 .logo_180 {
+    position: absolute;
+    top: -177px;
+    left: -169px;
+}
+
 .slide.hide a {
     cursor: default;
+}
+
+.wind_line_1 {
+    background-image: url("/images/wind_line_1.png");
+    width: 32px;
+    height: 109px;
+    background-size: 100% 100%;
+}
+
+.wind_line_2 {
+    background-image: url("/images/wind_line_2.png");
+    width: 29px;
+    height: 99px;
+    background-size: 100% 100%;
+}
+
+.water_line_1 {
+    background-image: url("/images/water_line_1.png");
+    width: 166px;
+    height: 243px;
+    background-size: 100% 100%;
+}
+
+.water_line_2 {
+    background-image: url("/images/water_line-2.png");
+    width: 189px;
+    height: 96px;
+    background-size: 100% 100%;
+}
+
+.sun_line_1 {
+    background-image: url("/images/sun_line_1.png");
+    width: 149px;
+    height: 291px;
+    background-size: 100% 100%;
+}
+
+.sun_line_2 {
+    background-image: url("/images/sun_line_2.png");
+    width: 281px;
+    height: 244px;
+    background-size: 100% 100%;
+}
+
+.wind_power {
+    background-image: url("/images/wind_turbins.jpg");
+    width: 146px;
+    height: 92px;
+    background-size: 100% 100%;
+}
+
+.solar_power {
+    background-image: url("/images/solar_power.jpg");
+    width: 310px;
+    height: 137px;
+    background-size: 100% 100%;
+}
+
+.ocean_power {
+    background-image: url("/images/ocean_power.jpg");
+    width: 146px;
+    height: 97px;
+    background-size: 100% 100%;
+}
+
+.nature_power .ocean_power {
+    top: -118px;
+    left: -238px;
+    position: absolute;
+}
+
+.nature_power .water_line_1 {
+    position: absolute;
+    top: -23px;
+    left: -165px;
+}
+
+.nature_power .water_line_2 {
+    position: absolute;
+    top: -65px;
+    left: -85px;
+}
+
+.nature_power .solar_power {
+    position: absolute;
+    top: -118px;
+    left: 367px;
+    z-index: 1;
+}
+
+.nature_power .sun_line_1 {
+    position: absolute;
+    top: -62px;
+    left: 217px;
+}
+
+.nature_power .sun_line_2 {
+    position: absolute;
+    top: -2px;
+    left: 234px;
+}
+
+.nature_power .wind_power {
+    position: absolute;
+    top: -96px;
+    left: 145px;
+    z-index: 1;
+}
+
+.nature_power .wind_line_1 {
+    position: absolute;
+    top: -80px;
+    left: 111px;
+}
+
+.nature_power .wind_line_2 {
+    position: absolute;
+    top: -70px;
+    left: 290px;
+}
+
+.nature_power .solar_rectangle {
+    border: 1px solid #000084;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 228px;
+    left: 216px;
+}
+
+.earth_20 {
+    background-image: url("/images/earth_20.png");
+    width: 216px;
+    height: 432px;
+    background-size: 100% 100%;
+}
+
+.earth_20_2 {
+    background-image: url("/images/earth_20_2.png");
+    width: 432px;
+    height: 313px;
+    background-size: 100% 100%;
+}
+
+.earth_60 {
+    background-image: url("/images/earth_60.png");
+    width: 432px;
+    height: 432px;
+    background-size: 100% 100%;
+}
+
+.earth_part_1 {
+    background-image: url("/images/earth_part_1.png");
+    width: 102px;
+    height: 124px;
+    background-size: 100% 100%;
+}
+
+.earth_part_2 {
+    background-image: url("/images/earth_part_2.png");
+    width: 111px;
+    height: 35px;
+    background-size: 100% 100%;
+}
+
+.earth_part_3 {
+    background-image: url("/images/earth_part_3.png");
+    width: 209px;
+    height: 161px;
+    background-size: 100% 100%;
+}
+
+.earth_part_4 {
+    background-image: url("/images/earth_part_4.png");
+    width: 221px;
+    height: 115px;
+    background-size: 100% 100%;
+}
+
+.parted_world .earth_20{
+    position: absolute;
+    left: 50%;
+    margin-left: 15px;
+    top: 202px;
+}
+
+.parted_world .earth_20_2{
+    position: absolute;
+    left: 50%;
+    margin-left: -201px;
+    top: 320px;
+}
+
+.parted_world .earth_60{
+    position: absolute;
+    left: 50%;
+    margin-left: -218px;
+    top: 205px;
+}
+
+.parted_world .earth_part_1{
+    left: 50%;
+    position: absolute;
+    top: 185px;
+    margin-left: 213px;
+}
+
+.parted_world .earth_part_2{
+    position: absolute;
+}
+
+.parted_world .earth_part_3{
+    position: absolute;
+}
+
+.parted_world .earth_part_4{
+    position: absolute;
 }

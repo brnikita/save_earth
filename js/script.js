@@ -17,7 +17,15 @@ $(function () {
         $rectanglesClickable = $('.js-slide-rectangles-clickable'),
         $firstSixChallengaes = $('.js-slide-first-six-challenges'),
         $slideTurnTheWorld = $('.js-slide-turn-the-world'),
-        $slideLogo = $('.js-slide-logo');
+        $slideLogo = $('.js-slide-logo'),
+        $slideLogo180 = $('.js-slide-logo-180'),
+        $naturalResources = $('.js-slide-natural-resources'),
+        $slideWater = $('.js-slide-water'),
+        $slideWind = $('.js-slide-wind'),
+        $slideSolar = $('.js-slide-solar'),
+        $desertEnergy = $('.slide-desert-energy'),
+        $slideEnergyChoice = $('.slide-energy-choice'),
+        $slideEnergy40 = $('.js-slide-energy-40');
 
     /**
      * Constructor of Slide class
@@ -122,7 +130,7 @@ $(function () {
             opacity = 1;
         }
 
-        $el.css('opacity', 1- opacity);
+        $el.css('opacity', 1 - opacity);
     };
 
     /**
@@ -502,7 +510,7 @@ $(function () {
             }),
         new Slide(
             $slideLogo,
-            900,
+            1000,
             function (scrollPosition) {
                 var $earth = $('.js-earth', this.$el),
                     rotate;
@@ -524,10 +532,121 @@ $(function () {
                 });
             }),
         new Slide(
-            $slideLogo,
+            $slideLogo180,
+            400,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slideLogo180,
             400,
             function (scrollPosition) {
                 this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $naturalResources,
+            600,
+            function (scrollPosition) {
+                var $logo180 = $('.js-logo-180', this.$el);
+
+                this.fadeOut(scrollPosition, $logo180);
+            }),
+        new Slide(
+            $naturalResources,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideWater,
+            600,
+            function (scrollPosition) {
+                var $oceanPower = $('.js-ocean_power', this.$el),
+                    $waterLine1 = $('.js-water_line_1', this.$el),
+                    $waterLine2 = $('.js-water_line_2', this.$el);
+
+                this.fadeIn(scrollPosition, $oceanPower);
+                this.fadeIn(scrollPosition, $waterLine1);
+                this.fadeIn(scrollPosition, $waterLine2);
+                this.fadeInTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideWater,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideWind,
+            600,
+            function (scrollPosition) {
+                var $windPower = $('.js-wind_power', this.$el),
+                    $windLine1 = $('.js-wind_line_1', this.$el),
+                    $windLine2 = $('.js-wind_line_2', this.$el);
+
+                this.fadeIn(scrollPosition, $windPower);
+                this.fadeIn(scrollPosition, $windLine1);
+                this.fadeIn(scrollPosition, $windLine2);
+                this.fadeInTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideWind,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideSolar,
+            600,
+            function (scrollPosition) {
+                var $solarPower = $('.js-solar_power', this.$el),
+                    $solarLine1 = $('.js-sun_line_1', this.$el),
+                    $solarLine2 = $('.js-sun_line_2', this.$el),
+                    $solarRectangle = $('.js-solar_rectangle', this.$el);
+
+                this.fadeIn(scrollPosition, $solarPower);
+                this.fadeIn(scrollPosition, $solarLine1);
+                this.fadeIn(scrollPosition, $solarLine2);
+                this.fadeIn(scrollPosition, $solarRectangle);
+                this.fadeInTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideSolar,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $desertEnergy,
+            600,
+            function (scrollPosition) {
+                this.fadeInTitle(scrollPosition);
+            }),
+        new Slide(
+            $desertEnergy,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideEnergyChoice,
+            600,
+            function (scrollPosition) {
+                this.fadeInTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideEnergyChoice,
+            600,
+            function (scrollPosition) {
+                this.fadeOut(scrollPosition, this.$el);
+            }),
+        new Slide(
+            $slideEnergy40,
+            600,
+            function (scrollPosition) {
+                var $earthPart60 = $('.js-earth_60');
+
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $earthPart60);
             })
     ];
 
