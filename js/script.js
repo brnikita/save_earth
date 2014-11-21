@@ -17,21 +17,22 @@ $(function () {
         $rectanglesClickable = $('.js-slide-rectangles-clickable'),
         $firstSixChallengaes = $('.js-slide-first-six-challenges'),
         $slideTurnTheWorld = $('.js-slide-turn-the-world'),
+        $slideLogo = $('.js-slide-logo');
 
-        /**
-         * Constructor of Slide class
-         *
-         * @constructor
-         * @param {jQuery} $slide slide element
-         * @param {number} scrollLength Scrolling length of slide
-         * @param {function} slideHandler Function handles scroll changing for current slide
-         * @returns {undefined}
-         */
-        Slide = function ($slide, scrollLength, slideHandler) {
-            this.$el = $slide;
-            this.scrollLength = scrollLength;
-            this.slideHandler = slideHandler;
-        };
+    /**
+     * Constructor of Slide class
+     *
+     * @constructor
+     * @param {jQuery} $slide slide element
+     * @param {number} scrollLength Scrolling length of slide
+     * @param {function} slideHandler Function handles scroll changing for current slide
+     * @returns {undefined}
+     */
+    Slide = function ($slide, scrollLength, slideHandler) {
+        this.$el = $slide;
+        this.scrollLength = scrollLength;
+        this.slideHandler = slideHandler;
+    };
 
     /**
      * Field contains scrolling length of slide
@@ -68,7 +69,7 @@ $(function () {
      * @returns {undefined}
      */
     Slide.prototype.hide = function () {
-        this.$el.addClass('hide');
+        this.$el.addClass('hide').removeAttr('style');
     };
 
     /**
@@ -80,6 +81,76 @@ $(function () {
      */
     Slide.prototype.show = function () {
         this.$el.removeClass('hide');
+    };
+
+    /**
+     * Method fades in element
+     *
+     * @method
+     * @name Slide#fadeInTitle
+     * @param {number} opacity
+     * @param {jQuery} $el
+     * @returns {undefined}
+     */
+    Slide.prototype.fadeIn = function (opacity, $el) {
+        if (opacity > 0.5) {
+            opacity += 0.3;
+        }
+
+        if (opacity > 0.9) {
+            opacity = 1;
+        }
+
+        $el.css('opacity', opacity);
+    };
+
+    /**
+     * Method fades out element
+     *
+     * @method
+     * @name Slide#fadeOutTitle
+     * @param {number} opacity
+     * @param {jQuery} $el
+     * @returns {undefined}
+     */
+    Slide.prototype.fadeOut = function (opacity, $el) {
+        if (opacity > 0.5) {
+            opacity += 0.3;
+        }
+
+        if (opacity > 0.9) {
+            opacity = 1;
+        }
+
+        $el.css('opacity', 1- opacity);
+    };
+
+    /**
+     * Method fades in element
+     *
+     * @method
+     * @name Slide#fadeInTitle
+     * @param {number} opacity
+     * @returns {undefined}
+     */
+    Slide.prototype.fadeInTitle = function (opacity) {
+        var $title = $('.js-title', this.$el);
+
+        this.fadeIn(opacity, $title);
+    };
+
+    /**
+     * Method fades out title
+     *
+     * @method
+     * @name Slide#fadeOutTitle
+     * @param {number} opacity
+     * @returns {undefined}
+     */
+    Slide.prototype.fadeOutTitle = function (opacity) {
+        var $title = $('.js-title', this.$el);
+
+        this.fadeOut(opacity, $title);
     };
 
     /**
@@ -138,11 +209,10 @@ $(function () {
             $coalBurning,
             400,
             function (scrollPosition) {
-                var $burnCoal = $('.js-burn-coal', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $burnCoal = $('.js-burn-coal', this.$el);
 
-                $burnCoal.css('opacity', 1 - scrollPosition);
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $burnCoal);
             }),
         //natural gas
         new Slide(
@@ -150,8 +220,9 @@ $(function () {
             600,
             function (scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
-                    $title = $('.js-title', this.$el),
                     rightPosition;
+
+                this.fadeInTitle(scrollPosition);
 
                 if (scrollPosition > 0.5) {
                     scrollPosition += 0.1;
@@ -168,7 +239,6 @@ $(function () {
                     right: rightPosition - 50 + 'px'
                 });
 
-                $title.css('opacity', scrollPosition);
             }),
         new Slide(
             $tapPlanet,
@@ -184,25 +254,13 @@ $(function () {
             $('.js-tap-planet-fade-out'),
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.2;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $('.js-slide-natural-gas-fade-in'),
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.2;
-                }
-
-                $title.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
             }),
         new Slide(
             $('.js-slide-natural-gas'),
@@ -211,12 +269,8 @@ $(function () {
                 var $oilTap = $('.js-oil-tap', this.$el),
                     $gusBurn = $('.js-gus-burn', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.2;
-                }
-
-                $oilTap.css('opacity', 1 - scrollPosition);
-                $gusBurn.css('opacity', scrollPosition);
+                this.fadeOut(scrollPosition, $oilTap);
+                this.fadeIn(scrollPosition, $gusBurn);
             }),
         new Slide(
             $slide6Challenges,
@@ -224,14 +278,7 @@ $(function () {
             function (scrollPosition) {
                 var $gusBurn = $('.js-gus-burn', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.2;
-                }
-
-                if (scrollPosition > 0.8) {
-                    scrollPosition = 1;
-                }
-                $gusBurn.css('opacity', 1 - scrollPosition);
+                this.fadeOut(scrollPosition, $gusBurn);
             }),
         new Slide(
             $slide6Challenges,
@@ -242,27 +289,16 @@ $(function () {
             $slide6Challenges,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideGlobalWarming,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $slideGlobalWarming,
@@ -278,27 +314,16 @@ $(function () {
             $slideGlobalWarming,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideOceanAcidification,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $slideOceanAcidification,
@@ -314,27 +339,16 @@ $(function () {
             $slideOceanAcidification,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideArcticIce,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $slideArcticIce,
@@ -350,27 +364,16 @@ $(function () {
             $slideArcticIce,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideExtremeEvents,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $slideExtremeEvents,
@@ -386,27 +389,16 @@ $(function () {
             $slideExtremeEvents,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideFlooding,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $slideFlooding,
@@ -422,27 +414,16 @@ $(function () {
             $slideFlooding,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $glacierRetreat,
             600,
             function (scrollPosition) {
-                var $rectangle = $('.js-rectangle:last', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangle = $('.js-rectangle:last', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangle.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $rectangle);
             }),
         new Slide(
             $glacierRetreat,
@@ -458,25 +439,13 @@ $(function () {
             $glacierRetreat,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $rectanglesClickable,
             600,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
             }),
         new Slide(
             $rectanglesClickable,
@@ -490,25 +459,13 @@ $(function () {
             $rectanglesClickable,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $firstSixChallengaes,
             600,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
             }),
         new Slide(
             $firstSixChallengaes,
@@ -522,31 +479,20 @@ $(function () {
             $firstSixChallengaes,
             400,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
-
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', 1 - scrollPosition);
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideTurnTheWorld,
             600,
             function (scrollPosition) {
-                var $rectangles = $('.js-rectangle', this.$el),
-                    $title = $('.js-title', this.$el);
+                var $rectangles = $('.js-rectangle', this.$el);
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
-                }
-
-                $title.css('opacity', scrollPosition);
-                $rectangles.css('opacity', 1 - scrollPosition);
+                this.fadeInTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $rectangles);
             }),
         new Slide(
             $slideTurnTheWorld,
-            300,
+            600,
             function () {
                 var $rectangles = $('.js-rectangle', this.$el),
                     $title = $('.js-title', this.$el);
@@ -555,16 +501,33 @@ $(function () {
                 $rectangles.css('opacity', 0);
             }),
         new Slide(
-            $slideTurnTheWorld,
-            400,
+            $slideLogo,
+            900,
             function (scrollPosition) {
-                var $title = $('.js-title', this.$el);
+                var $earth = $('.js-earth', this.$el),
+                    rotate;
 
                 if (scrollPosition > 0.5) {
-                    scrollPosition += 0.3;
+                    scrollPosition += 0.1;
                 }
 
-                $title.css('opacity', 1 - scrollPosition);
+                if (scrollPosition > 0.8) {
+                    scrollPosition = 1;
+                }
+
+
+                rotate = 'rotate(' + 180 * scrollPosition + 'deg)';
+                $earth.css({
+                    '-ms-transform': rotate,
+                    '-webkit-transform': rotate,
+                    'transform': rotate
+                });
+            }),
+        new Slide(
+            $slideLogo,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
             })
     ];
 
@@ -654,13 +617,34 @@ $(function () {
         relativeScrollPosition = scrollPosition / nextSlide.scrollLength;
         nextSlide.slideHandler(relativeScrollPosition);
 
-        if (currentSlide !== nextSlide) {
-            if (currentSlide instanceof Slide) {
-                currentSlide.hide();
-            }
+        if (typeof currentSlide === 'undefined') {
             currentSlide = nextSlide;
             currentSlide.show();
+            return;
         }
+
+        if (currentSlide.$el !== nextSlide.$el) {
+            currentSlide.hide();
+            nextSlide.show();
+        }
+
+        if (currentSlide !== nextSlide) {
+            currentSlide = nextSlide;
+        }
+    }
+
+    /**
+     * Function handles click event in links
+     *
+     * @function
+     * @name slideLinkClickHandler
+     * @returns {boolean}
+     */
+    function slideLinkClickHandler() {
+        var $this = $(this),
+            $slideWrapper = $this.parents('.slide');
+
+        return !$slideWrapper.hasClass('hide');
     }
 
     /**
@@ -673,6 +657,8 @@ $(function () {
     function addListeners() {
         $window.on('scroll', scrollHandler).
             on('resize', setFullHeightBySlides);
+        $('a', $slides).on('click', slideLinkClickHandler);
+
     }
 
     setFullHeightBySlides();

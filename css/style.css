@@ -11,12 +11,8 @@ body {
     background-color: #9fe8ef;
 }
 
-.hide {
-    display: none;
-}
-
 .slides {
-    margin-top: 190px;
+    margin-top: 50px;
 }
 
 .title {
@@ -32,37 +28,46 @@ body {
 }
 
 .slide-hand-world .hand-world {
-    margin: -130px -300px 0 -300px;
+    margin: -180px -300px 0 -300px;
 }
 
 .earth {
-    background-image: url('/images/earth.svg');
+    background-image: url('/images/earth.png');
     width: 432px;
     height: 432px;
+    background-size: 100% 100%;
 }
 
 .burn-coal {
-    background-image: url('/images/coal_burning.svg');
+    background-image: url('/images/coal_burning.png');
     height: 415px;
     width: 432px;
+    background-size: 100% 100%;
 }
 
 .oil-tap {
-    background-image: url('/images/oil_tap.svg');
+    background-image: url('/images/oil_tap.png');
     width: 150px;
     height: 225px;
+    background-size: 100% 100%;
 }
 
 .slide {
     position: fixed;
     width: 100%;
+    z-index: 1;
+}
+
+.slide.hide {
+    opacity: 0 !important;
+    z-index: 0;
 }
 
 .slide .earth {
     position: absolute;
     left: 50%;
     margin-left: -218px;
-    top: 255px;
+    top: 205px;
 }
 
 .slide .earth .oil-tap {
@@ -81,7 +86,7 @@ body {
     position: absolute;
     z-index: 2;
     opacity: 0;
-    top: -174px;
+    top: -222px;
     text-align: center;
     width: 100%;
 }
@@ -100,13 +105,13 @@ body {
 
 .six-challenges.global-warming {
     position: absolute;
-    top: 442px;
+    top: 373px;
     right: -106px;
 }
 
 .six-challenges.ocean-acidification {
     position: absolute;
-    top: 416px;
+    top: 326px;
     left: -224px;
 }
 
@@ -134,3 +139,43 @@ body {
     left: 625px;
 }
 
+@media (max-width: 1181px) {
+    .six-challenges.declining-ice {
+        left: -224px;
+    }
+
+    .six-challenges.glacier-retreat {
+        left: 514px;
+    }
+}
+
+.logo {
+    background-image: url(/images/logo.png);
+    width: 756px;
+    height: 701px;
+    background-size: 100% 100%;
+}
+
+.logo_180 {
+    background-image: url(/images/logo_180.png);
+    width: 756px;
+    height: 701px;
+    background-size: 100% 100%;
+}
+
+.earth_180 {
+    background-image: url(/images/earth_180.png);
+    width: 432px;
+    height: 432px;
+    background-size: 100% 100%;
+}
+
+.earth .logo {
+    position: absolute;
+    top: -92px;
+    left: -169px;
+}
+
+.slide.hide a {
+    cursor: default;
+}
