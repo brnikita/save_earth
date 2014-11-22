@@ -25,7 +25,12 @@ $(function () {
         $slideSolar = $('.js-slide-solar'),
         $desertEnergy = $('.slide-desert-energy'),
         $slideEnergyChoice = $('.slide-energy-choice'),
-        $slideEnergy40 = $('.js-slide-energy-40');
+        $slideEnergy40 = $('.js-slide-energy-40'),
+        $slideEnergy60 = $('.js-slide-energy-60'),
+        $slideEnergy50 = $('.js-slide-energy-50'),
+        $slideEnergy50Other = $('.js-slide-energy-50-other'),
+        $slideEnergy40Hands = $('.js-slide-energy-40-hands'),
+        $slideEnergy60Follow = $('.js-slide-energy-60-follow');
 
     /**
      * Constructor of Slide class
@@ -159,6 +164,50 @@ $(function () {
         var $title = $('.js-title', this.$el);
 
         this.fadeOut(opacity, $title);
+    };
+
+    /**
+     * Method returns x coordinate of part of line between 2 points
+     *
+     * @method
+     * @name Slide#getXCoordinate
+     * @param {number} scrollPosition
+     * @param {number} x1
+     * @param {number} x2
+     * @returns {number}
+     */
+    Slide.prototype.getXCoordinate = function (scrollPosition, x1, x2) {
+        if (scrollPosition < 0.1) {
+            scrollPosition = 0;
+        }
+
+        if (scrollPosition > 0.9) {
+            scrollPosition = 1;
+        }
+
+        return (x1 - x2) * scrollPosition + x2;
+    };
+
+    /**
+     * Method returns y coordinate of part of line between 2 points
+     *
+     * @method
+     * @name Slide#getYCoordinate
+     * @param {number} scrollPosition
+     * @param {number} y1
+     * @param {number} y2
+     * @returns {number}
+     */
+    Slide.prototype.getYCoordinate = function (scrollPosition, y1, y2) {
+        if (scrollPosition < 0.1) {
+            scrollPosition = 0;
+        }
+
+        if (scrollPosition > 0.9) {
+            scrollPosition = 1;
+        }
+
+        return (y1 - y2) * scrollPosition + y2;
     };
 
     /**
@@ -510,19 +559,14 @@ $(function () {
             }),
         new Slide(
             $slideLogo,
-            1000,
+            800,
             function (scrollPosition) {
                 var $earth = $('.js-earth', this.$el),
                     rotate;
 
-                if (scrollPosition > 0.5) {
-                    scrollPosition += 0.1;
-                }
-
-                if (scrollPosition > 0.8) {
+                if (scrollPosition > 0.9) {
                     scrollPosition = 1;
                 }
-
 
                 rotate = 'rotate(' + 180 * scrollPosition + 'deg)';
                 $earth.css({
@@ -641,12 +685,257 @@ $(function () {
             }),
         new Slide(
             $slideEnergy40,
+            800,
+            function (scrollPosition) {
+                var $earth20 = $('.js-earth_20', this.$el),
+                    $earth20Two = $('.js-earth_20_2', this.$el),
+                    $earthLInePart40 = $('.js-earth_line_part_40', this.$el),
+                    $earthPart60 = $('.js-earth_60', this.$el),
+                    earth20X0 = 500,
+                    earth20X1 = 15,
+                    earth20Y0 = -600,
+                    earth20Y1 = 202,
+                    earth20X = this.getXCoordinate(scrollPosition, earth20X1, earth20X0),
+                    earth20Y = this.getXCoordinate(scrollPosition, earth20Y1, earth20Y0),
+                    earth202X0 = 500,
+                    earth202X1 = -201,
+                    earth202Y0 = 600,
+                    earth202Y1 = 320,
+                    earth202X = this.getXCoordinate(scrollPosition, earth202X1, earth202X0),
+                    earth202Y = this.getXCoordinate(scrollPosition, earth202Y1, earth202Y0);
+
+                $earth20.css({
+                    'margin-left': earth20X,
+                    'top': earth20Y
+                });
+                $earth20Two.css({
+                    'margin-left': earth202X,
+                    'top': earth202Y
+                });
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $earthPart60);
+                this.fadeIn(scrollPosition, $earth20);
+                this.fadeIn(scrollPosition, $earth20Two);
+                this.fadeIn(scrollPosition, $earthLInePart40);
+            }),
+        new Slide(
+            $slideEnergy40,
+            400,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slideEnergy40,
+            400,
+            function (scrollPosition) {
+                var $earthLInePart40 = $('.js-earth_line_part_40', this.$el);
+
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earthLInePart40);
+            }),
+        new Slide(
+            $slideEnergy60,
             600,
             function (scrollPosition) {
-                var $earthPart60 = $('.js-earth_60');
+                var $earthLInePart60 = $('.js-earth_line_part_60', this.$el);
+
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $earthLInePart60);
+            }),
+        new Slide(
+            $slideEnergy60,
+            400,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slideEnergy60,
+            400,
+            function (scrollPosition) {
+                var $earthLInePart60 = $('.js-earth_line_part_60', this.$el);
+
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earthLInePart60);
+            }),
+        new Slide(
+            $slideEnergy50,
+            800,
+            function (scrollPosition) {
+                var $earth20Two = $('.js-earth_20_2', this.$el),
+                    $earthLInePart50 = $('.js-earth_line_part_50', this.$el),
+                    earth202X0 = 500,
+                    earth202X1 = -201,
+                    earth202Y0 = 600,
+                    earth202Y1 = 320,
+                    earth202X = this.getXCoordinate(scrollPosition, earth202X0, earth202X1),
+                    earth202Y = this.getXCoordinate(scrollPosition, earth202Y0, earth202Y1);
+
+
+                $earth20Two.css({
+                    'margin-left': earth202X,
+                    'top': earth202Y
+                });
+                this.fadeInTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earth20Two);
+                this.fadeIn(scrollPosition, $earthLInePart50);
+            }),
+        new Slide(
+            $slideEnergy50,
+            400,
+            function () {
+            }),
+        new Slide(
+            $slideEnergy50,
+            400,
+            function (scrollPosition) {
+                var $earthLInePart50 = $('.js-earth_line_part_50');
+
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earthLInePart50);
+            }),
+        new Slide(
+            $slideEnergy50Other,
+            800,
+            function (scrollPosition) {
+                var $earth20 = $('.js-earth_20', this.$el),
+                    $earth20Two = $('.js-earth_20_2', this.$el),
+                    $earthLInePart50Other = $('.js-earth_line_part_50_other', this.$el),
+                    earth20X0 = 500,
+                    earth20X1 = 15,
+                    earth20Y0 = -600,
+                    earth20Y1 = 202,
+                    earth20X = this.getXCoordinate(scrollPosition, earth20X0, earth20X1),
+                    earth20Y = this.getXCoordinate(scrollPosition, earth20Y0, earth20Y1),
+                    earth202X0 = 500,
+                    earth202X1 = -201,
+                    earth202Y0 = 600,
+                    earth202Y1 = 320,
+                    earth202X = this.getXCoordinate(scrollPosition, earth202X1, earth202X0),
+                    earth202Y = this.getXCoordinate(scrollPosition, earth202Y1, earth202Y0);
+
+                $earth20.css({
+                    'margin-left': earth20X,
+                    'top': earth20Y
+                });
+                $earth20Two.css({
+                    'margin-left': earth202X,
+                    'top': earth202Y
+                });
+
+                this.fadeInTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earth20);
+                this.fadeIn(scrollPosition, $earth20Two);
+                this.fadeIn(scrollPosition, $earthLInePart50Other);
+            }),
+        new Slide(
+            $slideEnergy50Other,
+            400,
+            function () {
+            }),
+        new Slide(
+            $slideEnergy50Other,
+            400,
+            function (scrollPosition) {
+                var $earthLInePart50Other = $('.js-earth_line_part_50_other', this.$el);
+
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earthLInePart50Other);
+            }),
+        new Slide(
+            $slideEnergy40Hands,
+            600,
+            function (scrollPosition) {
+                var $earth20 = $('.js-earth_20', this.$el),
+                    $earthPart60 = $('.js-earth_60', this.$el);
+
+                this.fadeInTitle(scrollPosition);
+                this.fadeIn(scrollPosition, $earth20);
+                this.fadeOut(scrollPosition, $earthPart60);
+            }),
+        new Slide(
+            $slideEnergy40Hands,
+            400,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slideEnergy40Hands,
+            400,
+            function (scrollPosition) {
+                this.fadeOutTitle(scrollPosition);
+            }),
+        new Slide(
+            $slideEnergy60Follow,
+            600,
+            function (scrollPosition) {
+                var $earthPart60 = $('.js-earth_60', this.$el);
 
                 this.fadeInTitle(scrollPosition);
                 this.fadeIn(scrollPosition, $earthPart60);
+            }),
+        new Slide(
+            $slideEnergy60Follow,
+            400,
+            function (scrollPosition) {
+            }),
+        new Slide(
+            $slideEnergy60Follow,
+            400,
+            function (scrollPosition) {
+                this.fadeOut(scrollPosition, this.$el);
+            }),
+        new Slide(
+            $('.js-slide-final-text-1'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-2'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-3'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-4'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-5'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-6'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-text-7'),
+            600,
+            function (scrollPosition) {
+                var $lastTitle = $('.js-title:last', this.$el);
+
+                this.fadeIn(scrollPosition, $lastTitle);
             })
     ];
 

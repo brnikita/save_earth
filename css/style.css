@@ -335,70 +335,131 @@ body {
     background-size: 100% 100%;
 }
 
-.earth_part_1 {
+.earth_line_part_40 {
     background-image: url("/images/earth_part_1.png");
     width: 102px;
     height: 124px;
     background-size: 100% 100%;
 }
 
-.earth_part_2 {
+.earth_line_part_60 {
     background-image: url("/images/earth_part_2.png");
     width: 111px;
     height: 35px;
     background-size: 100% 100%;
 }
 
-.earth_part_3 {
+.earth_line_part_50 {
     background-image: url("/images/earth_part_3.png");
     width: 209px;
     height: 161px;
     background-size: 100% 100%;
 }
 
-.earth_part_4 {
+.earth_line_part_50_other {
     background-image: url("/images/earth_part_4.png");
     width: 221px;
     height: 115px;
     background-size: 100% 100%;
 }
 
-.parted_world .earth_20{
+.parted_world .earth_20 {
     position: absolute;
     left: 50%;
     margin-left: 15px;
     top: 202px;
 }
 
-.parted_world .earth_20_2{
+.parted_world .earth_20_2 {
     position: absolute;
     left: 50%;
     margin-left: -201px;
     top: 320px;
 }
 
-.parted_world .earth_60{
+.parted_world .earth_60 {
     position: absolute;
     left: 50%;
     margin-left: -218px;
     top: 205px;
 }
 
-.parted_world .earth_part_1{
+.parted_world .earth_line_part_40 {
     left: 50%;
     position: absolute;
     top: 185px;
     margin-left: 213px;
 }
 
-.parted_world .earth_part_2{
+.parted_world .earth_line_part_60 {
+    left: 50%;
+    top: 289px;
+    margin-left: -319px;
     position: absolute;
 }
 
-.parted_world .earth_part_3{
+.parted_world .earth_line_part_50 {
     position: absolute;
+    left: 50%;
+    top: 83px;
+    margin-left: 153px;
 }
 
-.parted_world .earth_part_4{
+.parted_world .earth_line_part_50_other {
     position: absolute;
+    left: 50%;
+    top: 357px;
+    margin-left: 229px;
+}
+
+.slide-energy-40 .title {
+    position: absolute;
+    left: 50%;
+    top: 122px;
+    margin-left: 128px;
+}
+
+.slide-energy-60 .title {
+    position: absolute;
+    left: 50%;
+    top: 246px;
+    margin-left: -666px;
+}
+
+.slide-energy-50 .title {
+    position: absolute;
+    left: 50%;
+    top: 24px;
+    margin-left: 200px;
+}
+
+.slide-energy-50 .earth_20_2 {
+    opacity: 0;
+}
+
+.slide-energy-50-other .title {
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    margin-left: 250px;
+}
+
+.slide-energy-50-other .earth_20 {
+    opacity: 0;
+}
+
+.slide-energy-40-hands .title {
+    padding-right: 250px;
+}
+
+.slide-energy-40-hands .earth_60 {
+    opacity: 0;
+}
+
+.slide-energy-60-follow .title {
+    padding-right: 250px;
+}
+
+.final-text .title {
+    padding-bottom: 20px;
 }
