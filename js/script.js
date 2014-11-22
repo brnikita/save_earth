@@ -15,7 +15,7 @@ $(function () {
         $slideFlooding = $('.js-slide-flooding'),
         $glacierRetreat = $('.js-slide-glacier-retreat'),
         $rectanglesClickable = $('.js-slide-rectangles-clickable'),
-        $firstSixChallengaes = $('.js-slide-first-six-challenges'),
+        $firstSixChallenges = $('.js-slide-first-six-challenges'),
         $slideTurnTheWorld = $('.js-slide-turn-the-world'),
         $slideLogo = $('.js-slide-logo'),
         $slideLogo180 = $('.js-slide-logo-180'),
@@ -519,13 +519,13 @@ $(function () {
                 this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
-            $firstSixChallengaes,
+            $firstSixChallenges,
             600,
             function (scrollPosition) {
                 this.fadeInTitle(scrollPosition);
             }),
         new Slide(
-            $firstSixChallengaes,
+            $firstSixChallenges,
             300,
             function () {
                 var $title = $('.js-title', this.$el);
@@ -533,7 +533,7 @@ $(function () {
                 $title.removeAttr('style');
             }),
         new Slide(
-            $firstSixChallengaes,
+            $firstSixChallenges,
             400,
             function (scrollPosition) {
                 this.fadeOutTitle(scrollPosition);
@@ -936,6 +936,12 @@ $(function () {
                 var $lastTitle = $('.js-title:last', this.$el);
 
                 this.fadeIn(scrollPosition, $lastTitle);
+            }),
+        new Slide(
+            $('.js-slide-final-form'),
+            600,
+            function () {
+                $('#email').focus();
             })
     ];
 
