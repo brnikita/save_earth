@@ -55,7 +55,7 @@ body {
 .slide {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 7;
 }
 
 .slide.hide {
@@ -101,6 +101,7 @@ body {
 
 .six-challenges {
     text-decoration: none;
+    z-index: 6;
 }
 
 .six-challenges.global-warming {
