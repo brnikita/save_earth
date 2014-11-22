@@ -584,6 +584,7 @@ body {
     border-radius: 2px;
     position: relative;
     top: -7px;
+    cursor: pointer;
 }
 
 .slide-final-form .final-form__pointer {
