@@ -497,6 +497,7 @@ body {
     position: absolute;
     left: 50%;
     margin-left: -467px;
+    width: 430px;
 }
 
 .slide-final-form__titles .title {
