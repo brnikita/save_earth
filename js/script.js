@@ -4,6 +4,7 @@ $(function () {
         currentSlide,
         $window = $(window),
         $slides = $('.js-slides'),
+        $slideHandWorld = $('.js-hand-world'),
         $slide6Challenges = $('.js-slide-6-challenges'),
         $tapPlanet = $('.js-tap-planet'),
         slidesList,
@@ -218,41 +219,38 @@ $(function () {
      */
     slidesList = [
         new Slide(
-            $('.js-hand-world'),
+            $slideHandWorld,
             600,
             function (scrollPosition) {
-                this.$el.css('opacity', 1 - scrollPosition);
+                var $earth = $('.js-earth', this.$el);
+
+                this.fadeIn(scrollPosition, $earth);
+            }),
+        new Slide(
+            $slideHandWorld,
+            600,
+            function (scrollPosition) {
+                var $handWorld = $('.js-hand-world', this.$el);
+
+                this.fadeOutTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $handWorld);
             }),
         new Slide(
             $('.js-our-beautiful-planet'),
             600,
             function (scrollPosition) {
-                this.$el.css('opacity', scrollPosition);
+                this.fadeInTitle(scrollPosition);
             }),
         new Slide(
             $coalBurning,
-            600,
+            800,
             function (scrollPosition) {
                 var $burnCoal = $('.js-burn-coal', this.$el),
-                    opacity,
                     topPosition;
 
-                opacity = scrollPosition;
-                if (scrollPosition > 0.5) {
-                    opacity = scrollPosition + 0.2;
-                }
-
-                topPosition = scrollPosition;
-                if (scrollPosition > 0.8) {
-                    topPosition = 1;
-                    opacity = 1;
-                }
-
-                topPosition = -900 * (1 - topPosition);
-                $burnCoal.css({
-                    opacity: opacity,
-                    top: topPosition - 164 + 'px'
-                });
+                this.fadeIn(scrollPosition, $burnCoal);
+                topPosition = -900 * (1 - scrollPosition);
+                $burnCoal.css('top', topPosition - 164 + 'px');
             }),
         new Slide(
             $coalBurning,
@@ -324,23 +322,28 @@ $(function () {
             600,
             function (scrollPosition) {
                 var $oilTap = $('.js-oil-tap', this.$el),
-                    $gusBurn = $('.js-gus-burn', this.$el);
+                    $gusBurn = $('.js-gus-burn', this.$el),
+                    gusBurnOpacity = 0.6 * scrollPosition;
 
                 this.fadeOut(scrollPosition, $oilTap);
-                this.fadeIn(scrollPosition, $gusBurn);
+                $gusBurn.css('opacity', gusBurnOpacity);
             }),
         new Slide(
             $slide6Challenges,
             600,
             function (scrollPosition) {
-                var $gusBurn = $('.js-gus-burn', this.$el);
+                var $gusBurn = $('.js-gus-burn', this.$el),
+                    gusBurnOpacity = 0.6 * ( 1 - scrollPosition);
 
-                this.fadeOut(scrollPosition, $gusBurn);
+                $gusBurn.css('opacity', gusBurnOpacity);
             }),
         new Slide(
             $slide6Challenges,
             300,
-            function (scrollPosition) {
+            function () {
+                var $gusBurn = $('.js-gus-burn', this.$el);
+
+                $gusBurn.removeAttr('style');
             }),
         new Slide(
             $slide6Challenges,
@@ -559,9 +562,17 @@ $(function () {
             }),
         new Slide(
             $slideLogo,
+            600,
+            function (scrollPosition) {
+                var $logo = $('.js-logo', this.$el);
+
+                this.fadeIn(scrollPosition, $logo);
+            }),
+        new Slide(
+            $slideLogo,
             800,
             function (scrollPosition) {
-                var $earth = $('.js-earth', this.$el),
+                var $logo = $('.js-logo', this.$el),
                     rotate;
 
                 if (scrollPosition > 0.9) {
@@ -569,7 +580,7 @@ $(function () {
                 }
 
                 rotate = 'rotate(' + 180 * scrollPosition + 'deg)';
-                $earth.css({
+                $logo.css({
                     '-ms-transform': rotate,
                     '-webkit-transform': rotate,
                     'transform': rotate
@@ -681,7 +692,33 @@ $(function () {
             $slideEnergyChoice,
             600,
             function (scrollPosition) {
-                this.fadeOut(scrollPosition, this.$el);
+                var $oceanPower = $('.js-ocean_power', this.$el),
+                    $waterLine1 = $('.js-water_line_1', this.$el),
+                    $waterLine2 = $('.js-water_line_2', this.$el);
+
+                this.fadeOut(scrollPosition, $oceanPower);
+                this.fadeOut(scrollPosition, $waterLine1);
+                this.fadeOut(scrollPosition, $waterLine2);
+
+                var $windPower = $('.js-wind_power', this.$el),
+                    $windLine1 = $('.js-wind_line_1', this.$el),
+                    $windLine2 = $('.js-wind_line_2', this.$el);
+
+                this.fadeOut(scrollPosition, $windPower);
+                this.fadeOut(scrollPosition, $windLine1);
+                this.fadeOut(scrollPosition, $windLine2);
+
+                var $solarPower = $('.js-solar_power', this.$el),
+                    $solarLine1 = $('.js-sun_line_1', this.$el),
+                    $solarLine2 = $('.js-sun_line_2', this.$el),
+                    $solarRectangle = $('.js-solar_rectangle', this.$el);
+
+                this.fadeOut(scrollPosition, $solarPower);
+                this.fadeOut(scrollPosition, $solarLine1);
+                this.fadeOut(scrollPosition, $solarLine2);
+                this.fadeOut(scrollPosition, $solarRectangle);
+
+                this.fadeOutTitle(scrollPosition);
             }),
         new Slide(
             $slideEnergy40,
@@ -691,6 +728,7 @@ $(function () {
                     $earth20Two = $('.js-earth_20_2', this.$el),
                     $earthLInePart40 = $('.js-earth_line_part_40', this.$el),
                     $earthPart60 = $('.js-earth_60', this.$el),
+                    $earth = $('.js-earth', this.$el),
                     earth20X0 = 500,
                     earth20X1 = 15,
                     earth20Y0 = -600,
@@ -713,6 +751,7 @@ $(function () {
                     'top': earth202Y
                 });
                 this.fadeInTitle(scrollPosition);
+                this.fadeOut(scrollPosition, $earth);
                 this.fadeIn(scrollPosition, $earthPart60);
                 this.fadeIn(scrollPosition, $earth20);
                 this.fadeIn(scrollPosition, $earth20Two);
@@ -940,7 +979,12 @@ $(function () {
         new Slide(
             $('.js-slide-final-form'),
             600,
-            function () {
+            function (scrollPosition) {
+                var $finalForm = $('.js-final-form', this.$el),
+                    $finalFormLine = $('.js-final-form-line', this.$el);
+
+                this.fadeIn(scrollPosition, $finalForm);
+                this.fadeIn(scrollPosition, $finalFormLine);
                 $('#email').focus();
             })
     ];

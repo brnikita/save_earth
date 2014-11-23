@@ -10,12 +10,13 @@
 <body>
 <div class="js-slides slides">
     <div class="js-hand-world slide slide-hand-world hide">
-        <h3 class="title">The world as we got it</h3>
+        <h3 class="title js-title">The world as we got it</h3>
 
-        <img src="/images/hand_world.jpg" width="600" height="904" class="hand-world"/>
+        <img src="/images/hand_world.jpg" width="600" height="904" class="hand-world js-hand-world"/>
+        <div class="earth js-earth"></div>
     </div>
     <div class="js-our-beautiful-planet slide slide-our-beautiful-planet hide">
-        <h3 class="title">What do we do with this beautiful<br/>Planet ?</h3>
+        <h3 class="title js-title">What do we do with this beautiful<br/>Planet ?</h3>
 
         <div class="earth"></div>
     </div>
@@ -302,7 +303,11 @@
             Position</h3>
 
         <div class="earth js-earth">
-            <div class="logo"></div>
+            <div class="logo_wrapper">
+                <div class="logo_square js-logo">
+                    <div class="logo"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="js-slide-logo-180 slide slide-logo-180 hide">
@@ -310,7 +315,7 @@
             into it’s natural<br/>
             Position</h3>
 
-        <div class="earth_180 js-earth">
+        <div class="earth js-earth">
             <div class="logo_180"></div>
         </div>
     </div>
@@ -318,7 +323,7 @@
         <h3 class="title js-title">And see what Natural resources<br/>
             could do</h3>
 
-        <div class="earth_180 js-earth">
+        <div class="earth js-earth">
             <div class="logo_180 js-logo-180"></div>
         </div>
     </div>
@@ -328,7 +333,7 @@
             Water. It provides almost all energy<br/>
             for Norway</h3>
 
-        <div class="earth_180 nature_power js-earth">
+        <div class="earth nature_power js-earth">
             <div class="ocean_power js-ocean_power"></div>
             <div class="water_line_1 js-water_line_1"></div>
             <div class="water_line_2 js-water_line_2"></div>
@@ -339,7 +344,7 @@
             provide 20% of the world’s energy<br/>
             Needs.</h3>
 
-        <div class="earth_180 nature_power js-earth">
+        <div class="earth nature_power js-earth">
             <div class="ocean_power js-ocean_power"></div>
             <div class="water_line_1 js-water_line_1"></div>
             <div class="water_line_2 js-water_line_2"></div>
@@ -353,7 +358,7 @@
             This little square is enough to provide<br/>
             The world’s energy need !!!</h3>
 
-        <div class="earth_180 nature_power js-earth">
+        <div class="earth nature_power js-earth">
             <div class="ocean_power js-ocean_power"></div>
             <div class="water_line_1 js-water_line_1"></div>
             <div class="water_line_2 js-water_line_2"></div>
@@ -371,7 +376,7 @@
             More then 300 times of what we need.<br/>
             This square is less then 0,2% of our desert surface</h3>
 
-        <div class="earth_180 nature_power js-earth">
+        <div class="earth nature_power js-earth">
             <div class="ocean_power js-ocean_power"></div>
             <div class="water_line_1 js-water_line_1"></div>
             <div class="water_line_2 js-water_line_2"></div>
@@ -387,7 +392,7 @@
     <div class="js-slide-energy-choice slide slide-energy-choice hide">
         <h3 class="title js-title">It’s our Energy Choice.</h3>
 
-        <div class="earth_180 nature_power js-earth">
+        <div class="earth nature_power js-earth">
             <div class="ocean_power js-ocean_power"></div>
             <div class="water_line_1 js-water_line_1"></div>
             <div class="water_line_2 js-water_line_2"></div>
@@ -404,6 +409,7 @@
         <h3 class="title js-title">We decide directly for more then 40%<br/>
             of the Energy Source.</h3>
 
+        <div class="earth js-earth"></div>
         <div class="parted_world">
             <div class="earth_60 js-earth_60"></div>
             <div class="earth_20 js-earth_20"></div>
@@ -593,8 +599,8 @@
             <h3 class="title js-title">It’s more Efficient<br/>
                 ( Less Energy Transition and Transport )</h3>
         </div>
-        <div class="final-form-line"></div>
-        <form class="final-form">
+        <div class="final-form-line js-final-form-line"></div>
+        <form class="final-form js-final-form">
             <img src="/images/solar_power_form.jpg" width="400" height="138">
             <h4>Be a Hero</h4>
 

@@ -28,7 +28,11 @@ body {
 }
 
 .slide-hand-world .hand-world {
-    margin: -180px -300px 0 -300px;
+    margin: -206px -300px 0 -300px;
+}
+
+.slide-hand-world .earth {
+    opacity: 0;
 }
 
 .earth {
@@ -107,7 +111,7 @@ body {
 .six-challenges.global-warming {
     position: absolute;
     top: 373px;
-    right: -106px;
+    right: -225px;
 }
 
 .six-challenges.ocean-acidification {
@@ -164,20 +168,21 @@ body {
     background-size: 100% 100%;
 }
 
-.earth_180 {
-    background-image: url(/images/earth_180.png);
-    width: 432px;
-    height: 432px;
-    background-size: 100% 100%;
-}
-
-.earth .logo {
+.earth .logo_wrapper {
     position: absolute;
     top: -92px;
     left: -169px;
 }
 
-.earth_180 .logo_180 {
+.earth .logo_square {
+    width: 760px;
+    height: 617px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.earth .logo_180 {
     position: absolute;
     top: -177px;
     left: -169px;
@@ -189,15 +194,15 @@ body {
 
 .wind_line_1 {
     background-image: url("/images/wind_line_1.png");
-    width: 32px;
+    width: 35px;
     height: 109px;
     background-size: 100% 100%;
 }
 
 .wind_line_2 {
     background-image: url("/images/wind_line_2.png");
-    width: 29px;
-    height: 99px;
+    width: 30px;
+    height: 102px;
     background-size: 100% 100%;
 }
 
@@ -251,15 +256,15 @@ body {
 }
 
 .nature_power .ocean_power {
-    top: -118px;
-    left: -238px;
+    top: -107px;
+    left: -232px;
     position: absolute;
 }
 
 .nature_power .water_line_1 {
     position: absolute;
-    top: -23px;
-    left: -165px;
+    top: -9px;
+    left: -162px;
 }
 
 .nature_power .water_line_2 {
@@ -270,40 +275,40 @@ body {
 
 .nature_power .solar_power {
     position: absolute;
-    top: -118px;
-    left: 367px;
+    top: -149px;
+    left: 397px;
     z-index: 1;
 }
 
 .nature_power .sun_line_1 {
     position: absolute;
-    top: -62px;
-    left: 217px;
+    top: -86px;
+    left: 250px;
 }
 
 .nature_power .sun_line_2 {
     position: absolute;
-    top: -2px;
-    left: 234px;
+    top: -25px;
+    left: 270px;
 }
 
 .nature_power .wind_power {
     position: absolute;
-    top: -96px;
+    top: -117px;
     left: 145px;
     z-index: 1;
 }
 
 .nature_power .wind_line_1 {
     position: absolute;
-    top: -80px;
-    left: 111px;
+    top: -78px;
+    left: 109px;
 }
 
 .nature_power .wind_line_2 {
     position: absolute;
-    top: -70px;
-    left: 290px;
+    top: -75px;
+    left: 292px;
 }
 
 .nature_power .solar_rectangle {
@@ -311,8 +316,8 @@ body {
     width: 17px;
     height: 17px;
     position: absolute;
-    top: 228px;
-    left: 216px;
+    top: 203px;
+    left: 251px;
 }
 
 .earth_20 {
@@ -442,6 +447,10 @@ body {
     left: 50%;
     top: 122px;
     margin-left: 128px;
+}
+
+.slide-energy-40 .earth {
+    opacity: 0;
 }
 
 .slide-energy-60 .title {
@@ -604,4 +613,8 @@ body {
     font-size: 11px;
     width: 200px;
     margin-left: 200px;
+}
+
+.slide-desert-energy .title {
+    padding-right: 205px;
 }
