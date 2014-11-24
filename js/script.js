@@ -1105,6 +1105,9 @@ $(function () {
             on('resize', setFullHeightBySlides);
         $('a', $slides).on('click', slideLinkClickHandler);
 
+        $('.js-final-form').on('submit', function () {
+            return false;
+        });
     }
 
     setFullHeightBySlides();
