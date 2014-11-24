@@ -72,6 +72,7 @@ body {
     left: 50%;
     margin-left: -218px;
     top: 205px;
+    z-index: 1;
 }
 
 .slide .earth .oil-tap {
@@ -88,7 +89,6 @@ body {
 
 .slide .gas-burn {
     position: absolute;
-    z-index: 2;
     opacity: 0;
     top: -222px;
     text-align: center;
@@ -168,24 +168,23 @@ body {
     background-size: 100% 100%;
 }
 
-.earth .logo_wrapper {
-    position: absolute;
-    top: -92px;
-    left: -169px;
+.earth_180 {
+    background-image: url(/images/earth_180.png);
+    width: 432px;
+    height: 432px;
+    background-size: 100% 100%;
 }
 
-.earth .logo_square {
-    width: 760px;
-    height: 617px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
+.earth .logo {
+    position: absolute;
+    top: -66px;
+    left: -149px;
 }
 
-.earth .logo_180 {
+.earth_180 .logo_180 {
     position: absolute;
-    top: -177px;
-    left: -169px;
+    top: -203px;
+    left: -175px;
 }
 
 .slide.hide a {
@@ -509,14 +508,10 @@ body {
     width: 430px;
 }
 
-.slide-final-form__titles .title {
-    padding-bottom: 42px;
-}
-
 .final-form-line {
     background-image: url("/images/final_form_line.png");
     width: 124px;
-    height: 524px;
+    height: 448px;
     background-size: 100% 100%;
 }
 
@@ -543,7 +538,7 @@ body {
 .slide-final-form .final-form {
     position: absolute;
     left: 50%;
-    top: 215px;
+    top: 130px;
     margin-left: 36px;
 }
 
@@ -605,7 +600,7 @@ body {
 .slide-final-form .final-form-line {
     position: absolute;
     left: 50%;
-    top: 32px;
+    top: 22px;
     margin-left: -90px;
 }
 

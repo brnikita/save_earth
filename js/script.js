@@ -564,15 +564,17 @@ $(function () {
             $slideLogo,
             600,
             function (scrollPosition) {
-                var $logo = $('.js-logo', this.$el);
+                var $logo = $('.js-logo', this.$el),
+                    $earth = $('.js-earth', this.$el);
 
                 this.fadeIn(scrollPosition, $logo);
+                $earth.removeAttr('style');
             }),
         new Slide(
             $slideLogo,
             800,
             function (scrollPosition) {
-                var $logo = $('.js-logo', this.$el),
+                var $earth = $('.js-earth', this.$el),
                     rotate;
 
                 if (scrollPosition > 0.9) {
@@ -580,7 +582,7 @@ $(function () {
                 }
 
                 rotate = 'rotate(' + 180 * scrollPosition + 'deg)';
-                $logo.css({
+                $earth.css({
                     '-ms-transform': rotate,
                     '-webkit-transform': rotate,
                     'transform': rotate
@@ -727,17 +729,15 @@ $(function () {
                 var $earth20 = $('.js-earth_20', this.$el),
                     $earth20Two = $('.js-earth_20_2', this.$el),
                     $earthLInePart40 = $('.js-earth_line_part_40', this.$el),
-                    $earthPart60 = $('.js-earth_60', this.$el),
-                    $earth = $('.js-earth', this.$el),
-                    earth20X0 = 500,
+                    earth20X0 = -3,
                     earth20X1 = 15,
-                    earth20Y0 = -600,
+                    earth20Y0 = 206,
                     earth20Y1 = 202,
                     earth20X = this.getXCoordinate(scrollPosition, earth20X1, earth20X0),
                     earth20Y = this.getXCoordinate(scrollPosition, earth20Y1, earth20Y0),
-                    earth202X0 = 500,
+                    earth202X0 = -219,
                     earth202X1 = -201,
-                    earth202Y0 = 600,
+                    earth202Y0 = 324,
                     earth202Y1 = 320,
                     earth202X = this.getXCoordinate(scrollPosition, earth202X1, earth202X0),
                     earth202Y = this.getXCoordinate(scrollPosition, earth202Y1, earth202Y0);
@@ -751,10 +751,6 @@ $(function () {
                     'top': earth202Y
                 });
                 this.fadeInTitle(scrollPosition);
-                this.fadeOut(scrollPosition, $earth);
-                this.fadeIn(scrollPosition, $earthPart60);
-                this.fadeIn(scrollPosition, $earth20);
-                this.fadeIn(scrollPosition, $earth20Two);
                 this.fadeIn(scrollPosition, $earthLInePart40);
             }),
         new Slide(
@@ -919,14 +915,6 @@ $(function () {
             400,
             function (scrollPosition) {
                 this.fadeOut(scrollPosition, this.$el);
-            }),
-        new Slide(
-            $('.js-slide-final-text-1'),
-            600,
-            function (scrollPosition) {
-                var $lastTitle = $('.js-title:last', this.$el);
-
-                this.fadeIn(scrollPosition, $lastTitle);
             }),
         new Slide(
             $('.js-slide-final-text-2'),
