@@ -1,5 +1,4 @@
 .slides {
-    margin-top: 50px;
     font-family: "Trebuchet MS", Arial;
     font-size: 24px;
     color: #000;
@@ -27,21 +26,21 @@
 }
 
 .slides .earth {
-    background-image: url('/images/earth.png');
+    background-image: url('/images/save_earth/earth.png');
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
 }
 
 .slides .burn-coal {
-    background-image: url('/images/coal_burning.png');
+    background-image: url('/images/save_earth/coal_burning.png');
     height: 415px;
     width: 432px;
     background-size: 100% 100%;
 }
 
 .slides .oil-tap {
-    background-image: url('/images/oil_tap.png');
+    background-image: url('/images/save_earth/oil_tap.png');
     width: 150px;
     height: 225px;
     background-size: 100% 100%;
@@ -49,8 +48,11 @@
 
 .slides .slide {
     position: fixed;
-    width: 100%;
+    width: 940px;
     z-index: 7;
+    height: 800px;
+    overflow: hidden;
+    top: 0;
 }
 
 .slides .slide.hide {
@@ -146,21 +148,21 @@
 }
 
 .slides .logo {
-    background-image: url(/images/logo.png);
+    background-image: url(/images/save_earth/logo.png);
     width: 756px;
     height: 701px;
     background-size: 100% 100%;
 }
 
 .slides .logo_180 {
-    background-image: url(/images/logo_180.png);
+    background-image: url(/images/save_earth/logo_180.png);
     width: 756px;
     height: 701px;
     background-size: 100% 100%;
 }
 
 .slides .earth_180 {
-    background-image: url(/images/earth_180.png);
+    background-image: url(/images/save_earth/earth_180.png);
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
@@ -183,63 +185,63 @@
 }
 
 .slides .wind_line_1 {
-    background-image: url("/images/wind_line_1.png");
+    background-image: url("/images/save_earth/wind_line_1.png");
     width: 35px;
     height: 109px;
     background-size: 100% 100%;
 }
 
 .slides .wind_line_2 {
-    background-image: url("/images/wind_line_2.png");
+    background-image: url("/images/save_earth/wind_line_2.png");
     width: 30px;
     height: 102px;
     background-size: 100% 100%;
 }
 
 .slides .water_line_1 {
-    background-image: url("/images/water_line_1.png");
+    background-image: url("/images/save_earth/water_line_1.png");
     width: 166px;
     height: 243px;
     background-size: 100% 100%;
 }
 
 .slides .water_line_2 {
-    background-image: url("/images/water_line-2.png");
+    background-image: url("/images/save_earth/water_line-2.png");
     width: 189px;
     height: 96px;
     background-size: 100% 100%;
 }
 
 .slides .sun_line_1 {
-    background-image: url("/images/sun_line_1.png");
+    background-image: url("/images/save_earth/sun_line_1.png");
     width: 149px;
     height: 291px;
     background-size: 100% 100%;
 }
 
 .slides .sun_line_2 {
-    background-image: url("/images/sun_line_2.png");
+    background-image: url("/images/save_earth/sun_line_2.png");
     width: 281px;
     height: 244px;
     background-size: 100% 100%;
 }
 
 .slides .wind_power {
-    background-image: url("/images/wind_turbins.jpg");
+    background-image: url("/images/save_earth/wind_turbins.jpg");
     width: 146px;
     height: 92px;
     background-size: 100% 100%;
 }
 
 .slides .solar_power {
-    background-image: url("/images/solar_power.jpg");
+    background-image: url("/images/save_earth/solar_power.jpg");
     width: 310px;
     height: 137px;
     background-size: 100% 100%;
 }
 
 .slides .ocean_power {
-    background-image: url("/images/ocean_power.jpg");
+    background-image: url("/images/save_earth/ocean_power.jpg");
     width: 146px;
     height: 97px;
     background-size: 100% 100%;
@@ -311,49 +313,49 @@
 }
 
 .slides .earth_20 {
-    background-image: url("/images/earth_20.png");
+    background-image: url("/images/save_earth/earth_20.png");
     width: 216px;
     height: 432px;
     background-size: 100% 100%;
 }
 
 .slides .earth_20_2 {
-    background-image: url("/images/earth_20_2.png");
+    background-image: url("/images/save_earth/earth_20_2.png");
     width: 432px;
     height: 313px;
     background-size: 100% 100%;
 }
 
 .slides .earth_60 {
-    background-image: url("/images/earth_60.png");
+    background-image: url("/images/save_earth/earth_60.png");
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
 }
 
 .slides .earth_line_part_40 {
-    background-image: url("/images/earth_part_1.png");
+    background-image: url("/images/save_earth/earth_part_1.png");
     width: 102px;
     height: 124px;
     background-size: 100% 100%;
 }
 
 .slides .earth_line_part_60 {
-    background-image: url("/images/earth_part_2.png");
+    background-image: url("/images/save_earth/earth_part_2.png");
     width: 111px;
     height: 35px;
     background-size: 100% 100%;
 }
 
 .slides .earth_line_part_50 {
-    background-image: url("/images/earth_part_3.png");
+    background-image: url("/images/save_earth/earth_part_3.png");
     width: 209px;
     height: 161px;
     background-size: 100% 100%;
 }
 
 .slides .earth_line_part_50_other {
-    background-image: url("/images/earth_part_4.png");
+    background-image: url("/images/save_earth/earth_part_4.png");
     width: 221px;
     height: 115px;
     background-size: 100% 100%;
@@ -500,7 +502,7 @@
 }
 
 .slides .final-form-line {
-    background-image: url("/images/final_form_line.png");
+    background-image: url("/images/save_earth/final_form_line.png");
     width: 124px;
     height: 448px;
     background-size: 100% 100%;
@@ -508,7 +510,7 @@
 
 .slides .final-form__pointer {
     display: inline-block;
-    background-image: url("/images/final_form_pointer.png");
+    background-image: url("/images/save_earth/final_form_pointer.png");
     width: 35px;
     height: 33px;
     background-size: 100% 100%;
