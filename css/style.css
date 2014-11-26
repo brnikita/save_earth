@@ -1,21 +1,12 @@
-* {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-body {
+.slides {
+    margin-top: 50px;
     font-family: "Trebuchet MS", Arial;
     font-size: 24px;
     color: #000;
     background-color: #9fe8ef;
 }
 
-.slides {
-    margin-top: 50px;
-}
-
-.title {
+.slides .title {
     font-weight: normal;
     text-align: center;
     z-index: 5;
@@ -23,51 +14,51 @@ body {
     font-size: 24px;
 }
 
-.slide-hand-world {
+.slides .slide-hand-world {
     text-align: center;
 }
 
-.slide-hand-world .hand-world {
+.slides .slide-hand-world .hand-world {
     margin: -206px -300px 0 -300px;
 }
 
-.slide-hand-world .earth {
+.slides .slide-hand-world .earth {
     opacity: 0;
 }
 
-.earth {
+.slides .earth {
     background-image: url('/images/earth.png');
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
 }
 
-.burn-coal {
+.slides .burn-coal {
     background-image: url('/images/coal_burning.png');
     height: 415px;
     width: 432px;
     background-size: 100% 100%;
 }
 
-.oil-tap {
+.slides .oil-tap {
     background-image: url('/images/oil_tap.png');
     width: 150px;
     height: 225px;
     background-size: 100% 100%;
 }
 
-.slide {
+.slides .slide {
     position: fixed;
     width: 100%;
     z-index: 7;
 }
 
-.slide.hide {
+.slides .slide.hide {
     opacity: 0 !important;
     z-index: 0;
 }
 
-.slide .earth, .slide .earth_180 {
+.slides .slide .earth, .slide .earth_180 {
     position: absolute;
     left: 50%;
     margin-left: -218px;
@@ -75,19 +66,19 @@ body {
     z-index: 1;
 }
 
-.slide .earth .oil-tap {
+.slides .slide .earth .oil-tap {
     top: 181px;
     right: -50px;
     position: absolute;
 
 }
 
-.burn-coal, .slide-coal-burning .burn-coal {
+.slides .burn-coal, .slide-coal-burning .burn-coal {
     position: absolute;
     top: -164px;
 }
 
-.slide .gas-burn {
+.slides .slide .gas-burn {
     position: absolute;
     opacity: 0;
     top: -222px;
@@ -95,50 +86,50 @@ body {
     width: 100%;
 }
 
-.slide .gas-burn img {
+.slides .slide .gas-burn img {
     margin: 0 -369px;
 }
 
-.natural-gas-fade-in .oil-tap, .tap-planet-fade-out .oil-tap {
+.slides .natural-gas-fade-in .oil-tap, .tap-planet-fade-out .oil-tap {
     opacity: 1;
 }
 
-.six-challenges {
+.slides .six-challenges {
     text-decoration: none;
     z-index: 6;
 }
 
-.six-challenges.global-warming {
+.slides .six-challenges.global-warming {
     position: absolute;
     top: 373px;
     right: -225px;
 }
 
-.six-challenges.ocean-acidification {
+.slides .six-challenges.ocean-acidification {
     position: absolute;
     top: 326px;
     left: -224px;
 }
 
-.six-challenges.declining-ice {
+.slides .six-challenges.declining-ice {
     position: absolute;
     top: 118px;
     left: -361px;
 }
 
-.six-challenges.extreme_events {
+.slides .six-challenges.extreme_events {
     position: absolute;
     top: -204px;
     left: -136px;
 }
 
-.six-challenges.flooding_dangers {
+.slides .six-challenges.flooding_dangers {
     position: absolute;
     top: -204px;
     right: -204px;
 }
 
-.six-challenges.glacier-retreat {
+.slides .six-challenges.glacier-retreat {
     position: absolute;
     top: 109px;
     left: 625px;
@@ -154,163 +145,163 @@ body {
     }
 }
 
-.logo {
+.slides .logo {
     background-image: url(/images/logo.png);
     width: 756px;
     height: 701px;
     background-size: 100% 100%;
 }
 
-.logo_180 {
+.slides .logo_180 {
     background-image: url(/images/logo_180.png);
     width: 756px;
     height: 701px;
     background-size: 100% 100%;
 }
 
-.earth_180 {
+.slides .earth_180 {
     background-image: url(/images/earth_180.png);
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
 }
 
-.earth .logo {
+.slides .earth .logo {
     position: absolute;
     top: -66px;
     left: -149px;
 }
 
-.earth_180 .logo_180 {
+.slides .earth_180 .logo_180 {
     position: absolute;
     top: -203px;
     left: -175px;
 }
 
-.slide.hide a {
+.slides .slide.hide a {
     cursor: default;
 }
 
-.wind_line_1 {
+.slides .wind_line_1 {
     background-image: url("/images/wind_line_1.png");
     width: 35px;
     height: 109px;
     background-size: 100% 100%;
 }
 
-.wind_line_2 {
+.slides .wind_line_2 {
     background-image: url("/images/wind_line_2.png");
     width: 30px;
     height: 102px;
     background-size: 100% 100%;
 }
 
-.water_line_1 {
+.slides .water_line_1 {
     background-image: url("/images/water_line_1.png");
     width: 166px;
     height: 243px;
     background-size: 100% 100%;
 }
 
-.water_line_2 {
+.slides .water_line_2 {
     background-image: url("/images/water_line-2.png");
     width: 189px;
     height: 96px;
     background-size: 100% 100%;
 }
 
-.sun_line_1 {
+.slides .sun_line_1 {
     background-image: url("/images/sun_line_1.png");
     width: 149px;
     height: 291px;
     background-size: 100% 100%;
 }
 
-.sun_line_2 {
+.slides .sun_line_2 {
     background-image: url("/images/sun_line_2.png");
     width: 281px;
     height: 244px;
     background-size: 100% 100%;
 }
 
-.wind_power {
+.slides .wind_power {
     background-image: url("/images/wind_turbins.jpg");
     width: 146px;
     height: 92px;
     background-size: 100% 100%;
 }
 
-.solar_power {
+.slides .solar_power {
     background-image: url("/images/solar_power.jpg");
     width: 310px;
     height: 137px;
     background-size: 100% 100%;
 }
 
-.ocean_power {
+.slides .ocean_power {
     background-image: url("/images/ocean_power.jpg");
     width: 146px;
     height: 97px;
     background-size: 100% 100%;
 }
 
-.nature_power .ocean_power {
+.slides .nature_power .ocean_power {
     top: -107px;
     left: -232px;
     position: absolute;
 }
 
-.nature_power .water_line_1 {
+.slides .nature_power .water_line_1 {
     position: absolute;
     top: -9px;
     left: -162px;
 }
 
-.nature_power .water_line_2 {
+.slides .nature_power .water_line_2 {
     position: absolute;
     top: -65px;
     left: -85px;
 }
 
-.nature_power .solar_power {
+.slides .nature_power .solar_power {
     position: absolute;
     top: -149px;
     left: 397px;
     z-index: 1;
 }
 
-.nature_power .sun_line_1 {
+.slides .nature_power .sun_line_1 {
     position: absolute;
     top: -86px;
     left: 250px;
 }
 
-.nature_power .sun_line_2 {
+.slides .nature_power .sun_line_2 {
     position: absolute;
     top: -25px;
     left: 270px;
 }
 
-.nature_power .wind_power {
+.slides .nature_power .wind_power {
     position: absolute;
     top: -117px;
     left: 145px;
     z-index: 1;
 }
 
-.nature_power .wind_line_1 {
+.slides .nature_power .wind_line_1 {
     position: absolute;
     top: -78px;
     left: 109px;
 }
 
-.nature_power .wind_line_2 {
+.slides .nature_power .wind_line_2 {
     position: absolute;
     top: -75px;
     left: 292px;
 }
 
-.nature_power .solar_rectangle {
+.slides .nature_power .solar_rectangle {
     border: 1px solid #000084;
     width: 17px;
     height: 17px;
@@ -319,77 +310,77 @@ body {
     left: 251px;
 }
 
-.earth_20 {
+.slides .earth_20 {
     background-image: url("/images/earth_20.png");
     width: 216px;
     height: 432px;
     background-size: 100% 100%;
 }
 
-.earth_20_2 {
+.slides .earth_20_2 {
     background-image: url("/images/earth_20_2.png");
     width: 432px;
     height: 313px;
     background-size: 100% 100%;
 }
 
-.earth_60 {
+.slides .earth_60 {
     background-image: url("/images/earth_60.png");
     width: 432px;
     height: 432px;
     background-size: 100% 100%;
 }
 
-.earth_line_part_40 {
+.slides .earth_line_part_40 {
     background-image: url("/images/earth_part_1.png");
     width: 102px;
     height: 124px;
     background-size: 100% 100%;
 }
 
-.earth_line_part_60 {
+.slides .earth_line_part_60 {
     background-image: url("/images/earth_part_2.png");
     width: 111px;
     height: 35px;
     background-size: 100% 100%;
 }
 
-.earth_line_part_50 {
+.slides .earth_line_part_50 {
     background-image: url("/images/earth_part_3.png");
     width: 209px;
     height: 161px;
     background-size: 100% 100%;
 }
 
-.earth_line_part_50_other {
+.slides .earth_line_part_50_other {
     background-image: url("/images/earth_part_4.png");
     width: 221px;
     height: 115px;
     background-size: 100% 100%;
 }
 
-.parted_world .earth_20 {
+.slides .parted_world .earth_20 {
     position: absolute;
     left: 50%;
     margin-left: 15px;
     top: 202px;
 }
 
-.parted_world .earth_20_2 {
+.slides .parted_world .earth_20_2 {
     position: absolute;
     left: 50%;
     margin-left: -201px;
     top: 320px;
 }
 
-.parted_world .earth_60 {
+.slides .parted_world .earth_60 {
     position: absolute;
     left: 50%;
     margin-left: -218px;
     top: 205px;
 }
 
-.parted_world .earth_line_part_40 {
+.slides .parted_world .earth_line_part_40 {
     left: 50%;
     position: absolute;
     top: 185px;
@@ -404,21 +395,21 @@ body {
     }
 }
 
-.parted_world .earth_line_part_60 {
+.slides .parted_world .earth_line_part_60 {
     left: 50%;
     top: 289px;
     margin-left: -319px;
     position: absolute;
 }
 
-.parted_world .earth_line_part_50 {
+.slides .parted_world .earth_line_part_50 {
     position: absolute;
     left: 50%;
     top: 83px;
     margin-left: 153px;
 }
 
-.parted_world .earth_line_part_50_other {
+.slides .parted_world .earth_line_part_50_other {
     position: absolute;
     left: 50%;
     top: 357px;
@@ -441,18 +432,18 @@ body {
     }
 }
 
-.slide-energy-40 .title {
+.slides .slide-energy-40 .title {
     position: absolute;
     left: 50%;
     top: 122px;
     margin-left: 128px;
 }
 
-.slide-energy-40 .earth {
+.slides .slide-energy-40 .earth {
     opacity: 0;
 }
 
-.slide-energy-60 .title {
+.slides .slide-energy-60 .title {
     position: absolute;
     left: 50%;
     top: 246px;
@@ -467,55 +458,55 @@ body {
     }
 }
 
-.slide-energy-50 .title {
+.slides .slide-energy-50 .title {
     position: absolute;
     left: 50%;
     top: 24px;
     margin-left: 200px;
 }
 
-.slide-energy-50 .earth_20_2 {
+.slides .slide-energy-50 .earth_20_2 {
     opacity: 0;
 }
 
-.slide-energy-50-other .title {
+.slides .slide-energy-50-other .title {
     position: absolute;
     left: 50%;
     top: 300px;
     margin-left: 250px;
 }
 
-.slide-energy-50-other .earth_20 {
+.slides .slide-energy-50-other .earth_20 {
     opacity: 0;
 }
 
-.slide-energy-40-hands .title {
+.slides .slide-energy-40-hands .title {
     padding-right: 250px;
 }
 
-.slide-energy-40-hands .earth_60 {
+.slides .slide-energy-40-hands .earth_60 {
     opacity: 0;
 }
 
-.slide-energy-60-follow .title {
+.slides .slide-energy-60-follow .title {
     padding-right: 250px;
 }
 
-.slide-final-form__titles {
+.slides .slide-final-form__titles {
     position: absolute;
     left: 50%;
     margin-left: -467px;
     width: 430px;
 }
 
-.final-form-line {
+.slides .final-form-line {
     background-image: url("/images/final_form_line.png");
     width: 124px;
     height: 448px;
     background-size: 100% 100%;
 }
 
-.final-form__pointer {
+.slides .final-form__pointer {
     display: inline-block;
     background-image: url("/images/final_form_pointer.png");
     width: 35px;
@@ -523,7 +514,7 @@ body {
     background-size: 100% 100%;
 }
 
-.final-form {
+.slides .final-form {
     background: #fff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -535,41 +526,41 @@ body {
     color: #424A54;
 }
 
-.slide-final-form .final-form {
+.slides .slide-final-form .final-form {
     position: absolute;
     left: 50%;
     top: 130px;
     margin-left: 36px;
 }
 
-.slide-final-form .final-form img {
+.slides .slide-final-form .final-form img {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
-.slide-final-form .final-form h4 {
+.slides .slide-final-form .final-form h4 {
     font-size: 18px;
     font-weight: normal;
     padding: 4px 0;
 
 }
 
-.slide-final-form .final-form ul {
+.slides .slide-final-form .final-form ul {
     margin-left: 72px;
     font-size: 12px;
     padding-bottom: 15px;
 }
 
-.slide-final-form .final-form p {
+.slides .slide-final-form .final-form p {
     padding-bottom: 3px;
 }
 
-.slide-final-form .final-form label {
+.slides .slide-final-form .final-form label {
     font-size: 14px;
 }
 
-.slide-final-form .final-form input {
+.slides .slide-final-form .final-form input {
     padding: 0 7px;
     width: 116px;
     height: 23px;
@@ -579,7 +570,7 @@ body {
     border-radius: 2px;
 }
 
-.slide-final-form .final-form button {
+.slides .slide-final-form .final-form button {
     font-size: 14px;
     padding: 7px 12px 7px 16px;
     background: #EEB53B;
@@ -592,24 +583,24 @@ body {
     cursor: pointer;
 }
 
-.slide-final-form .final-form__pointer {
+.slides .slide-final-form .final-form__pointer {
     position: relative;
     top: 13px;
 }
 
-.slide-final-form .final-form-line {
+.slides .slide-final-form .final-form-line {
     position: absolute;
     left: 50%;
     top: 22px;
     margin-left: -90px;
 }
 
-.final-form__service-limited {
+.slides .final-form__service-limited {
     font-size: 11px;
     width: 200px;
     margin-left: 200px;
 }
 
-.slide-desert-energy .title {
+.slides .slide-desert-energy .title {
     padding-right: 205px;
 }
