@@ -305,6 +305,7 @@ $(function () {
         });
 
         $slides.height(fullHeight);
+        $slides.parents('.container').addClass('fullWidth');
     }
 
     /**
@@ -915,14 +916,14 @@ $(function () {
                         $earthLInePart40 = $('.js-earth_line_part_40', this.$el),
                         earth20X0 = -3,
                         earth20X1 = 15,
-                        earth20Y0 = 206,
-                        earth20Y1 = 202,
+                        earth20Y0 = 247,
+                        earth20Y1 = 243,
                         earth20X = this.getXCoordinate(scrollPosition, earth20X1, earth20X0),
                         earth20Y = this.getXCoordinate(scrollPosition, earth20Y1, earth20Y0),
                         earth202X0 = -219,
                         earth202X1 = -201,
-                        earth202Y0 = 324,
-                        earth202Y1 = 320,
+                        earth202Y0 = 365,
+                        earth202Y1 = 361,
                         earth202X = this.getXCoordinate(scrollPosition, earth202X1, earth202X0),
                         earth202Y = this.getXCoordinate(scrollPosition, earth202Y1, earth202Y0);
 
@@ -982,8 +983,8 @@ $(function () {
                         $earthLInePart50 = $('.js-earth_line_part_50', this.$el),
                         earth202X0 = 500,
                         earth202X1 = -201,
-                        earth202Y0 = 600,
-                        earth202Y1 = 320,
+                        earth202Y0 = 641,
+                        earth202Y1 = 361,
                         earth202X = this.getXCoordinate(scrollPosition, earth202X0, earth202X1),
                         earth202Y = this.getXCoordinate(scrollPosition, earth202Y0, earth202Y1);
 
@@ -1020,13 +1021,13 @@ $(function () {
                         earth20X0 = 500,
                         earth20X1 = 15,
                         earth20Y0 = -600,
-                        earth20Y1 = 202,
+                        earth20Y1 = 243,
                         earth20X = this.getXCoordinate(scrollPosition, earth20X0, earth20X1),
                         earth20Y = this.getXCoordinate(scrollPosition, earth20Y0, earth20Y1),
                         earth202X0 = 500,
                         earth202X1 = -201,
                         earth202Y0 = 600,
-                        earth202Y1 = 320,
+                        earth202Y1 = 361,
                         earth202X = this.getXCoordinate(scrollPosition, earth202X1, earth202X0),
                         earth202Y = this.getXCoordinate(scrollPosition, earth202Y1, earth202Y0);
 

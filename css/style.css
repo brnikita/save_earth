@@ -11,6 +11,8 @@
     z-index: 5;
     position: relative;
     font-size: 24px;
+    line-height: 28px;
+    margin: 41px 0 0 0;
 }
 
 .slides .slide-hand-world {
@@ -48,7 +50,7 @@
 
 .slides .slide {
     position: fixed;
-    width: 940px;
+    width: 100%;
     z-index: 7;
     height: 800px;
     overflow: hidden;
@@ -64,7 +66,7 @@
     position: absolute;
     left: 50%;
     margin-left: -218px;
-    top: 205px;
+    top: 246px;
     z-index: 1;
 }
 
@@ -83,13 +85,15 @@
 .slides .slide .gas-burn {
     position: absolute;
     opacity: 0;
-    top: -222px;
+    top: -181px;
     text-align: center;
     width: 100%;
 }
 
 .slides .slide .gas-burn img {
     margin: 0 -369px;
+    width: 1170px;
+    height: 1170px;
 }
 
 .slides .natural-gas-fade-in .oil-tap, .tap-planet-fade-out .oil-tap {
@@ -101,10 +105,19 @@
     z-index: 6;
 }
 
+.slides .six-challenges img {
+    max-width: none;
+}
+
 .slides .six-challenges.global-warming {
     position: absolute;
     top: 373px;
     right: -225px;
+}
+
+.slides .six-challenges.global-warming img {
+    width: 136px;
+    height: 91px;
 }
 
 .slides .six-challenges.ocean-acidification {
@@ -113,10 +126,21 @@
     left: -224px;
 }
 
+.slides .six-challenges.ocean-acidification img {
+    width: 97px;
+    height: 146px;
+
+}
+
 .slides .six-challenges.declining-ice {
     position: absolute;
     top: 118px;
     left: -361px;
+}
+
+.slides .six-challenges.declining-ice img {
+    width: 146px;
+    height: 97px;
 }
 
 .slides .six-challenges.extreme_events {
@@ -125,16 +149,31 @@
     left: -136px;
 }
 
+.slides .six-challenges.extreme_events img {
+    width: 146px;
+    height: 103px;
+}
+
 .slides .six-challenges.flooding_dangers {
     position: absolute;
     top: -204px;
     right: -204px;
 }
 
+.slides .six-challenges.flooding_dangers img {
+    width: 146px;
+    height: 97px;
+}
+
 .slides .six-challenges.glacier-retreat {
     position: absolute;
     top: 109px;
     left: 625px;
+}
+
+.slides .six-challenges.glacier-retreat img {
+    width: 146px;
+    height: 116px;
 }
 
 @media (max-width: 1181px) {
@@ -365,28 +404,28 @@
     position: absolute;
     left: 50%;
     margin-left: 15px;
-    top: 202px;
+    top: 243px;
 }
 
 .slides .parted_world .earth_20_2 {
     position: absolute;
     left: 50%;
     margin-left: -201px;
-    top: 320px;
+    top: 361px;
 }
 
 .slides .parted_world .earth_60 {
     position: absolute;
     left: 50%;
     margin-left: -218px;
-    top: 205px;
+    top: 246px;
 }
 
 .slides .parted_world .earth_line_part_40 {
     left: 50%;
     position: absolute;
-    top: 185px;
-    margin-left: 213px;
+    top: 226px;
+    margin-left: 254px;
 }
 
 @media (max-width: 1085px) {
@@ -399,7 +438,7 @@
 
 .slides .parted_world .earth_line_part_60 {
     left: 50%;
-    top: 289px;
+    top: 330px;
     margin-left: -319px;
     position: absolute;
 }
@@ -407,20 +446,20 @@
 .slides .parted_world .earth_line_part_50 {
     position: absolute;
     left: 50%;
-    top: 83px;
+    top: 124px;
     margin-left: 153px;
 }
 
 .slides .parted_world .earth_line_part_50_other {
     position: absolute;
     left: 50%;
-    top: 357px;
+    top: 398px;
     margin-left: 229px;
 }
 
 @media (max-width: 1096px) {
     .parted_world .earth_line_part_50 {
-        top: 109px;
+        top: 150px;
         width: 147px;
         height: 138px;
     }
@@ -428,7 +467,7 @@
 
 @media (max-width: 1276px) {
     .parted_world .earth_line_part_50_other {
-        top: 395px;
+        top: 436px;
         width: 113px;
         height: 68px;
     }
@@ -499,6 +538,11 @@
     left: 50%;
     margin-left: -467px;
     width: 430px;
+    top: 150px;
+}
+
+.slides .slide-final-form__titles .title {
+    margin: 0;
 }
 
 .slides .final-form-line {
@@ -593,7 +637,7 @@
 .slides .slide-final-form .final-form-line {
     position: absolute;
     left: 50%;
-    top: 22px;
+    top: 172px;
     margin-left: -90px;
 }
 
@@ -605,4 +649,9 @@
 
 .slides .slide-desert-energy .title {
     padding-right: 205px;
+}
+
+.fullWidth {
+    width: 100%;
+    max-width: 100% !important;
 }
