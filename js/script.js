@@ -4,34 +4,71 @@ $(function () {
         currentSlide,
         $window = $(window),
         $slides = $('.js-slides'),
-        $slideHandWorld = $('.js-hand-world'),
-        $slide6Challenges = $('.js-slide-6-challenges'),
-        $tapPlanet = $('.js-tap-planet'),
+        $slideHandWorld,
+        $slide6Challenges,
+        $tapPlanet,
         slidesList,
-        $coalBurning = $('.js-coal-burning'),
-        $slideGlobalWarming = $('.js-slide-global-warming'),
-        $slideOceanAcidification = $('.js-slide-ocean-acidification'),
-        $slideArcticIce = $('.js-slide-arctic-ice'),
-        $slideExtremeEvents = $('.js-slide-extreme-events'),
-        $slideFlooding = $('.js-slide-flooding'),
-        $glacierRetreat = $('.js-slide-glacier-retreat'),
-        $rectanglesClickable = $('.js-slide-rectangles-clickable'),
-        $firstSixChallenges = $('.js-slide-first-six-challenges'),
-        $slideTurnTheWorld = $('.js-slide-turn-the-world'),
-        $slideLogo = $('.js-slide-logo'),
-        $slideLogo180 = $('.js-slide-logo-180'),
-        $naturalResources = $('.js-slide-natural-resources'),
-        $slideWater = $('.js-slide-water'),
-        $slideWind = $('.js-slide-wind'),
-        $slideSolar = $('.js-slide-solar'),
-        $desertEnergy = $('.slide-desert-energy'),
-        $slideEnergyChoice = $('.slide-energy-choice'),
-        $slideEnergy40 = $('.js-slide-energy-40'),
-        $slideEnergy60 = $('.js-slide-energy-60'),
-        $slideEnergy50 = $('.js-slide-energy-50'),
-        $slideEnergy50Other = $('.js-slide-energy-50-other'),
-        $slideEnergy40Hands = $('.js-slide-energy-40-hands'),
+        $coalBurning,
+        $slideGlobalWarming,
+        $slideOceanAcidification,
+        $slideArcticIce,
+        $slideExtremeEvents,
+        $slideFlooding,
+        $glacierRetreat,
+        $rectanglesClickable,
+        $firstSixChallenges,
+        $slideTurnTheWorld,
+        $slideLogo,
+        $slideLogo180,
+        $naturalResources,
+        $slideWater,
+        $slideWind,
+        $slideSolar,
+        $desertEnergy,
+        $slideEnergyChoice,
+        $slideEnergy40,
+        $slideEnergy60,
+        $slideEnergy50,
+        $slideEnergy50Other,
+        $slideEnergy40Hands,
+        $slideEnergy60Follow;
+
+    /**
+     * Function saves elements of DOM
+     *
+     * @function
+     * @name setElements
+     * @returns {undefined}
+     */
+    function setElements() {
+        $slideHandWorld = $('.js-hand-world');
+        $slide6Challenges = $('.js-slide-6-challenges');
+        $tapPlanet = $('.js-tap-planet');
+        $coalBurning = $('.js-coal-burning');
+        $slideGlobalWarming = $('.js-slide-global-warming');
+        $slideOceanAcidification = $('.js-slide-ocean-acidification');
+        $slideArcticIce = $('.js-slide-arctic-ice');
+        $slideExtremeEvents = $('.js-slide-extreme-events');
+        $slideFlooding = $('.js-slide-flooding');
+        $glacierRetreat = $('.js-slide-glacier-retreat');
+        $rectanglesClickable = $('.js-slide-rectangles-clickable');
+        $firstSixChallenges = $('.js-slide-first-six-challenges');
+        $slideTurnTheWorld = $('.js-slide-turn-the-world');
+        $slideLogo = $('.js-slide-logo');
+        $slideLogo180 = $('.js-slide-logo-180');
+        $naturalResources = $('.js-slide-natural-resources');
+        $slideWater = $('.js-slide-water');
+        $slideWind = $('.js-slide-wind');
+        $slideSolar = $('.js-slide-solar');
+        $desertEnergy = $('.slide-desert-energy');
+        $slideEnergyChoice = $('.slide-energy-choice');
+        $slideEnergy40 = $('.js-slide-energy-40');
+        $slideEnergy60 = $('.js-slide-energy-60');
+        $slideEnergy50 = $('.js-slide-energy-50');
+        $slideEnergy50Other = $('.js-slide-energy-50-other');
+        $slideEnergy40Hands = $('.js-slide-energy-40-hands');
         $slideEnergy60Follow = $('.js-slide-energy-60-follow');
+    }
 
     /**
      * Constructor of Slide class
@@ -1110,7 +1147,11 @@ $(function () {
         });
     }
 
-    setFullHeightBySlides();
-    addListeners();
-    scrollHandler();
+
+    if ($slides.length) {
+        setElements();
+        setFullHeightBySlides();
+        addListeners();
+        scrollHandler();
+    }
 });
